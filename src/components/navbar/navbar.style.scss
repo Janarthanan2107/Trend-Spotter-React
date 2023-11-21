@@ -1,6 +1,7 @@
 :root {
   --clr-gold: #ecc700;
-  --clr-dark-gold: rgba(218, 165, 32, 0.793);
+  --clr-dark-gold: #daa520ca;
+  --clr-signIn: #bca732;
 }
 
 nav {
@@ -40,19 +41,32 @@ nav {
     }
     a {
       font-size: 1.25rem;
-      font-weight: 600;
-      letter-spacing: 1.25px;
-    }
-
-    .signIn {
-      font-size: 1.25rem;
       font-weight: 500;
-      color: var(--clr-gold);
+      letter-spacing: 1.25px;
 
       &:hover {
         text-decoration: underline;
         text-underline-offset: 10px;
       }
+    }
+
+    .signIn {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--clr-signIn);
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 10px;
+      }
+    }
+
+    .isActive {
+      color: var(--clr-dark-gold);
+      text-decoration: underline;
+      text-underline-offset: 10px;
     }
   }
 }

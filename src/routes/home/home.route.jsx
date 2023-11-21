@@ -1,9 +1,10 @@
+import { Category } from "../../components";
 import "../home/home.style.scss";
 
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <Category />
     </div>
   );
 };

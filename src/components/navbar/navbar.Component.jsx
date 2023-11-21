@@ -1,3 +1,6 @@
+import { NavLink } from "react-router-dom";
+
+import { PiSignIn } from "react-icons/pi";
 import trendSpotterLogo from "/trendSpotterLogo.svg";
 import "../navbar/navbar.style.scss";
 
@@ -5,26 +8,57 @@ const Navbar = () => {
   return (
     <nav>
       {/* logo */}
-      <div className="logo-container">
-        <img src={trendSpotterLogo} alt="logo" className="logo"/> <p>TrendSpotter</p>
-      </div>
+      <NavLink to="/">
+        <div className="logo-container">
+          <img src={trendSpotterLogo} alt="logo" className="logo" />{" "}
+          <p>TrendSpotter</p>
+        </div>
+      </NavLink>
 
       <span className="menu-container">
         {/* menu */}
         <ul>
           <li>
-            <a href="#">Shop</a>
+            <NavLink
+              to="shop"
+              className={({ isActive }) =>
+                isActive ? "isActive" : "isNotActive"
+              }
+            >
+              Shop
+            </NavLink>
           </li>
           <li>
-            <a href="#">Cart</a>
+            <NavLink
+              to="cart"
+              className={({ isActive }) =>
+                isActive ? "isActive" : "isNotActive"
+              }
+            >
+              Cart
+            </NavLink>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <NavLink
+              to="contact"
+              className={({ isActive }) =>
+                isActive ? "isActive" : "isNotActive"
+              }
+            >
+              Contact
+            </NavLink>
           </li>
         </ul>
 
         {/* signIn */}
-        <a className="signIn">Sign In</a>
+        <NavLink
+          to="signIn"
+          className={({ isActive }) =>
+            isActive ? "isActive signIn" : "isNotActive signIn"
+          }
+        >
+          <PiSignIn /> Sign In
+        </NavLink>
       </span>
     </nav>
   );
