@@ -1,0 +1,56 @@
+:root {
+  --clr-gold: #ecc700;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 5rem;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+
+    .logo {
+      width: 35px;
+      height: 35px;
+      color: var(--clr-gold);
+    }
+
+    p {
+      letter-spacing: 2px;
+      font-size: 1.25rem;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+  }
+
+  .menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
+
+    ul {
+      display: flex;
+      gap: 2rem;
+    }
+    a {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .signIn {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--clr-gold);
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 10px;
+      }
+    }
+  }
+}
