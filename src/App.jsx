@@ -1,9 +1,10 @@
-import { Navbar } from "./components";
+import { Navbar, Category } from "./components";
 
 const App = () => {
   return (
     <div>
       <Navbar />
+      <Category />
     </div>
   );
 };
