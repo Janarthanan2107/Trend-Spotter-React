@@ -1,13 +1,15 @@
+// hooks
 import { NavLink, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useUserContext } from "../../context/user.Context";
 
+// icons and logos
 import { PiSignIn } from "react-icons/pi";
 import { FaUser } from "react-icons/fa6";
 import trendSpotterLogo from "/trendSpotterLogo.svg";
 
 // styles
 import "../navbar/navbar.style.scss";
-import { useUserContext } from "../../context/user.Context";
-import { useEffect } from "react";
 
 const Navbar = () => {
   // import database from context
