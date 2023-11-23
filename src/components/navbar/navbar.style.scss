@@ -33,7 +33,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 5rem;
+    gap: 5.5rem;
 
     ul {
       display: flex;
@@ -47,6 +47,48 @@ nav {
       &:hover {
         text-decoration: underline;
         text-underline-offset: 10px;
+      }
+    }
+
+    .signIn-section {
+      display: flex;
+      gap: 1rem;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-right: 0.5px solid gray;
+        padding-right: 1.5rem;
+
+        img {
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 50%;
+          border: 0.8 solid gray;
+        }
+
+        p {
+          font-size: 1.25rem;
+          font-weight: 500;
+        }
+      }
+
+      .guest {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-right: 0.5px solid gray;
+        padding-right: 1.5rem;
+
+        .guest-icon {
+          color: var(--clr-signIn);
+        }
+
+        p {
+          font-size: 1.25rem;
+          font-weight: 500;
+        }
       }
     }
 

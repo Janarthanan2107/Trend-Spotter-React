@@ -49,4 +49,14 @@ const categories = [
     },
 ]
 
+const products = [
+    {
+        id: 1,
+        title: "Nike-Shoe",
+        category: "Shoes",
+        description: "Stylish Sneakers for Men's",
+        imgUrl: "http://yesofcorsa.com/wp-content/uploads/2019/11/Male-Sneakers-Model-Desktop-Wallpaper.jpg",
+    },
+]
+
 export { categories }
