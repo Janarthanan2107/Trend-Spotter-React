@@ -3,12 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/user.Context";
 import trendSpotterLogo from "/trendSpotterLogo.svg";
 import { FaGoogle } from "react-icons/fa";
-import "./signIn.style.scss";
-const SignIn = () => {
+
+// using the same styles
+import "./signUp.style.scss";
+
+const SignUp = () => {
   // import database from context
   const { user, googleHandler } = useUserContext();
 
   // form state
+  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,13 +23,13 @@ const SignIn = () => {
     navigate("/");
   };
 
-  const signUpPage = () => {
-    navigate("/signUp");
+  const signInPage = () => {
+    navigate("/signIn");
   };
 
-  const googlePopupHandler = () => {
-    googleHandler();
-  };
+  // const googlePopupHandler = () => {
+  //   googleHandler();
+  // };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -54,17 +58,27 @@ const SignIn = () => {
       <div className="form-container">
         <span className="logo-container">
           <img src={trendSpotterLogo} alt="logo" className="logo" />{" "}
-          <h1>Welcome Back!</h1>
+          <h1>Welcome</h1>
         </span>
         <p className="message">
-          Do not have an account?{" "}
-          <span className="unique" onClick={signUpPage}>
-            {" "}
-            Sign up here!
+          Do you have an account?{" "}
+          <span className="unique" onClick={signInPage}>
+            Sign In and explore
           </span>
         </p>
 
         <form className="form" onSubmit={submitHandler}>
+          <div className="form-control">
+            <label htmlFor="displayName">Display Name</label>
+            <input
+              type="text"
+              name="displayName"
+              id="displayName"
+              placeholder="Display Name"
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+            />
+          </div>
           <div className="form-control">
             <label htmlFor="email">Email</label>
             <input
@@ -88,11 +102,11 @@ const SignIn = () => {
             />
           </div>
           <div className="form-submit">
-            <button type="submit">Sign In</button>
-            <button type="button" onClick={googlePopupHandler}>
+            <button type="submit">Sign Up</button>
+            {/* <button type="button" onClick={googlePopupHandler}>
               <FaGoogle />
               Sign In with Google
-            </button>
+            </button> */}
           </div>
         </form>
       </div>
@@ -100,4 +114,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

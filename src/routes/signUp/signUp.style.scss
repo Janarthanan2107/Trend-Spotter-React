@@ -3,7 +3,7 @@
   margin: 3rem;
   border: 1px solid gray;
   border-radius: 20px;
-  height: 550px;
+  height: 580px;
   overflow: hidden;
 
   /* Apply the animation to an element */
@@ -11,8 +11,6 @@
     width: 45%;
     height: 100%;
     background-size: cover;
-    // animation: changeImage 10s infinite; /* 10s duration, infinite loop */
-    // transition: all 3s ease-in-out;
     background-image: url("https://menshaircuts.com/wp-content/uploads/2019/06/business-casual-men-outfit-grey-suit.jpg");
   }
 
@@ -90,4 +88,3 @@
     }
   }
 }
-
