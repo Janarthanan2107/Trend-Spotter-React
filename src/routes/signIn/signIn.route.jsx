@@ -1,26 +1,38 @@
-// hooks
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/user.Context";
-// styles
-import "./signIn.style.scss";
-// icons and logos
 import trendSpotterLogo from "/trendSpotterLogo.svg";
 import { FaGoogle } from "react-icons/fa";
-
+import "./signIn.style.scss";
 const SignIn = () => {
   // import database from context
   const { user, googleHandler } = useUserContext();
 
+  // form state
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   // navigate to home
-  let naviagte = useNavigate();
+  let navigate = useNavigate();
   const logoutToHome = () => {
-    naviagte("/");
+    navigate("/");
+  };
+
+  const googlePopupHandler = () => {
+    googleHandler();
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    googleHandler();
+
+    const userData = {
+      email,
+      password,
+    };
+    console.log(userData);
+
+    setEmail("");
+    setPassword("");
   };
 
   useEffect(() => {
@@ -51,6 +63,8 @@ const SignIn = () => {
               name="email"
               id="email"
               placeholder="Enter your email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="form-control">
@@ -60,11 +74,13 @@ const SignIn = () => {
               name="password"
               id="password"
               placeholder="Enter your valid password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="form-submit">
             <button type="submit">Sign In</button>
-            <button type="submit">
+            <button type="button" onClick={googlePopupHandler}>
               <FaGoogle />
               Sign In with Google
             </button>

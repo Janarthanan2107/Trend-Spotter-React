@@ -1,42 +1,44 @@
-// hooks
 import { NavLink, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { useUserContext } from "../../context/user.Context";
 
-// icons and logos
 import { PiSignIn } from "react-icons/pi";
 import { FaUser } from "react-icons/fa6";
 import trendSpotterLogo from "/trendSpotterLogo.svg";
 
 // styles
 import "../navbar/navbar.style.scss";
+import { useUserContext } from "../../context/user.Context";
+import { useEffect } from "react";
 
 const Navbar = () => {
   // import database from context
   const { user, logoutHandler } = useUserContext();
 
   // navigate to home
-  let naviagte = useNavigate();
+  let navigate = useNavigate();
+
   const logoutToSignIn = () => {
-    naviagte("/signIn");
+    navigate("/signIn");
   };
 
   const logout = () => {
-    logoutHandler();
+    setTimeout(() => {
+      logoutHandler();
+    }, 500);
+    logoutToSignIn();
   };
 
-  useEffect(() => {
-    if(!user){
-      logoutToSignIn();
-    }
-  }, [user])
+  // useEffect(() => {
+  //   if(!user){
+  //     logoutToSignIn();
+  //   }
+  // }, [user])
 
   return (
     <nav>
       {/* logo */}
       <NavLink to="/">
         <div className="logo-container">
-          <img src={trendSpotterLogo} alt="logo" className="logo" />{" "}
+          <img src={trendSpotterLogo} alt="logo" className="logo" />
           <p>TrendSpotter</p>
         </div>
       </NavLink>

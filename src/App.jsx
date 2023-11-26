@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root, Home, Shop, Cart, Contact, SignIn } from "./routes/index";
 
-import "./App.css"
+import "./App.css";
 
 // providing routers with respective components
 const router = createBrowserRouter([
@@ -16,6 +16,10 @@ const router = createBrowserRouter([
       },
       {
         path: "shop",
+        element: <Shop />,
+      },
+      {
+        path: "shop/:*",
         element: <Shop />,
       },
       {
