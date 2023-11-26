@@ -2,6 +2,8 @@ import { createContext, useState, useContext, useEffect } from "react";
 import {
   signInWithGooglePopup,
   createUserDocFromAuth,
+  onAuthStateChangeListener,
+  signOutUser,
 } from "../utils/firebase/index";
 
 // create the context
@@ -9,20 +11,32 @@ const UserContext = createContext();
 
 // create the context provider
 const UserContextProvider = ({ children }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
 
   const googleHandler = async () => {
     const { user } = await signInWithGooglePopup();
     const userDocRef = await createUserDocFromAuth(user);
     setUser(user);
-    logoutToHome()
   };
 
   const logoutHandler = () => {
     // Reset the user state to null
     setUser(null);
-    logoutToHome()
+    signOutUser();
   };
+
+  useEffect(() => {
+    // adding listener function
+    const unSubscribe = onAuthStateChangeListener((user) => {
+      // console.log(user);
+      setUser(user);
+      if (user) {
+        createUserDocFromAuth(user);
+      }
+    });
+
+    return unSubscribe;
+  }, []);
 
   //   assign the values
   const values = {

@@ -4,6 +4,7 @@ import { useUserContext } from "../../context/user.Context";
 import trendSpotterLogo from "/trendSpotterLogo.svg";
 import { FaGoogle } from "react-icons/fa";
 import "./signIn.style.scss";
+import { signInAuthForGoogle } from "../../utils/firebase";
 const SignIn = () => {
   // import database from context
   const { user, googleHandler } = useUserContext();
@@ -15,7 +16,7 @@ const SignIn = () => {
   // navigate to home
   let navigate = useNavigate();
 
-  const logoutToHome = () => {
+  const logInToHome = () => {
     navigate("/");
   };
 
@@ -27,24 +28,31 @@ const SignIn = () => {
     googleHandler();
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+    try {
+      const { user } = await signInAuthForGoogle(email, password);
+      console.log(user);
 
-    const userData = {
-      email,
-      password,
-    };
-    console.log(userData);
+      // navigate to home
+      logInToHome();
 
-    setEmail("");
-    setPassword("");
+      setEmail("");
+      setPassword("");
+    } catch (err) {
+      console.log(err.message);
+      console.log(err.code);
+      if (err.code === "auth/invalid-login-credentials") {
+        alert("Invalid-login-credentials");
+      }
+    }
   };
 
   useEffect(() => {
     if (user) {
       logoutToHome();
     }
-  }, [user]);
+  }, []);
 
   return (
     <div className="signIn-container">
@@ -60,7 +68,7 @@ const SignIn = () => {
           Do not have an account?{" "}
           <span className="unique" onClick={signUpPage}>
             {" "}
-            Sign up here!
+            Sign up!
           </span>
         </p>
 

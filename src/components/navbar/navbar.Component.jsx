@@ -1,13 +1,13 @@
+import { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { PiSignIn } from "react-icons/pi";
 import { FaUser } from "react-icons/fa6";
 import trendSpotterLogo from "/trendSpotterLogo.svg";
+import { useUserContext } from "../../context/user.Context";
 
 // styles
 import "../navbar/navbar.style.scss";
-import { useUserContext } from "../../context/user.Context";
-import { useEffect } from "react";
 
 const Navbar = () => {
   // import database from context
@@ -16,7 +16,7 @@ const Navbar = () => {
   // navigate to home
   let navigate = useNavigate();
 
-  const logoutToSignIn = () => {
+  const navigateToSignIn = () => {
     navigate("/signIn");
   };
 
@@ -24,14 +24,8 @@ const Navbar = () => {
     setTimeout(() => {
       logoutHandler();
     }, 500);
-    logoutToSignIn();
+    navigateToSignIn();
   };
-
-  // useEffect(() => {
-  //   if(!user){
-  //     logoutToSignIn();
-  //   }
-  // }, [user])
 
   return (
     <nav>

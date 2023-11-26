@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/user.Context";
 import trendSpotterLogo from "/trendSpotterLogo.svg";
-import { FaGoogle } from "react-icons/fa";
 
 // using the same styles
 import "./signUp.style.scss";
+import {
+  createUserDocFromAuth,
+  createUserForGoogle,
+} from "../../utils/firebase";
 
 const SignUp = () => {
   // import database from context
-  const { user, googleHandler } = useUserContext();
+  const { user } = useUserContext();
 
   // form state
   const [displayName, setDisplayName] = useState("");
@@ -19,36 +22,45 @@ const SignUp = () => {
   // navigate to home
   let navigate = useNavigate();
 
-  const logoutToHome = () => {
-    navigate("/");
-  };
-
   const signInPage = () => {
     navigate("/signIn");
   };
 
-  // const googlePopupHandler = () => {
-  //   googleHandler();
-  // };
-
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
 
-    const userData = {
-      email,
-      password,
-    };
-    console.log(userData);
+    try {
+      const { user } = await createUserForGoogle(email, password);
+      const userDocRef = await createUserDocFromAuth(user, { displayName });
+      console.log(user);
+      console.log(userDocRef);
 
-    setEmail("");
-    setPassword("");
+      setDisplayName("");
+      setEmail("");
+      setPassword("");
+
+      // page navigation
+      signInPage()
+
+    } catch (err) {
+      console.log("Something went wrong!!..", err.message);
+      console.log(err.code);
+      if (err.code === "auth/email-already-in-use") {
+        // toast message to be added
+        alert("Email-already-in-use");
+      }
+      if (err.code === "auth/invalid-email") {
+        // toast message to be added
+        alert("Invalid-email");
+      }
+    }
   };
 
   useEffect(() => {
     if (user) {
-      logoutToHome();
+      signInPage();
     }
-  }, [user]);
+  }, []);
 
   return (
     <div className="signIn-container">
