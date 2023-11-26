@@ -1,10 +1,16 @@
+// react hooks
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUserContext } from "../../context/user.Context";
+
+// icons
 import trendSpotterLogo from "/trendSpotterLogo.svg";
 import { FaGoogle } from "react-icons/fa";
-import "./signIn.style.scss";
+
+// firebase and context functions
 import { signInAuthForGoogle } from "../../utils/firebase";
+import { useUserContext } from "../../context/user.Context";
+import "./signIn.style.scss";
+
 const SignIn = () => {
   // import database from context
   const { user, googleHandler } = useUserContext();

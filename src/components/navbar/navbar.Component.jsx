@@ -1,9 +1,12 @@
-import { useEffect } from "react";
+// react hooks
 import { NavLink, useNavigate } from "react-router-dom";
 
+// icons
 import { PiSignIn } from "react-icons/pi";
 import { FaUser } from "react-icons/fa6";
 import trendSpotterLogo from "/trendSpotterLogo.svg";
+
+// context function
 import { useUserContext } from "../../context/user.Context";
 
 // styles

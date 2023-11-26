@@ -1,14 +1,19 @@
+// react hooks
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUserContext } from "../../context/user.Context";
+
+// icons
 import trendSpotterLogo from "/trendSpotterLogo.svg";
 
-// using the same styles
-import "./signUp.style.scss";
+// firebase functions and context
 import {
   createUserDocFromAuth,
   createUserForGoogle,
 } from "../../utils/firebase";
+import { useUserContext } from "../../context/user.Context";
+
+// using the same styles
+import "./signUp.style.scss";
 
 const SignUp = () => {
   // import database from context
