@@ -1,6 +1,7 @@
 // react hooks
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 // icons
 import trendSpotterLogo from "/trendSpotterLogo.svg";
@@ -46,16 +47,17 @@ const SignIn = () => {
       setEmail("");
       setPassword("");
     } catch (err) {
-      console.log(err.message);
+      console.log("Something went wrong!", err.message);
       console.log(err.code);
       if (err.code === "auth/invalid-login-credentials") {
-        alert("Invalid-login-credentials");
+        toast.error("Invalid login credentials!");
       }
     }
   };
 
   return (
     <div className="signIn-container">
+      <Toaster />
       {/* image section */}
       <div className="image-container"></div>
       {/* form section */}

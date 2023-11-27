@@ -1,6 +1,7 @@
 // react hooks
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 // icons
 import trendSpotterLogo from "/trendSpotterLogo.svg";
@@ -38,8 +39,8 @@ const SignUp = () => {
     try {
       const { user } = await createUserForGoogle(email, password);
       const userDocRef = await createUserDocFromAuth(user, { displayName });
-      console.log(user);
-      console.log(userDocRef);
+      // console.log(user);
+      // console.log(userDocRef);
 
       setDisplayName("");
       setEmail("");
@@ -55,11 +56,11 @@ const SignUp = () => {
       console.log(err.code);
       if (err.code === "auth/email-already-in-use") {
         // toast message to be added
-        alert("Email-already-in-use");
+        toast.error("Email is already in use!")
       }
       if (err.code === "auth/invalid-email") {
         // toast message to be added
-        alert("Invalid-email");
+        toast.error("Invalid Email address!")
       }
     }
   };
@@ -72,6 +73,7 @@ const SignUp = () => {
 
   return (
     <div className="signIn-container">
+      <Toaster />
       {/* image section */}
       <div className="image-container"></div>
       {/* form section */}
