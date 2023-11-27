@@ -3,6 +3,7 @@ import {
   signInWithGooglePopup,
   createUserDocFromAuth,
   onAuthStateChangeListener,
+  getUserDataFromCollection,
   signOutUser,
 } from "../utils/firebase/index";
 
@@ -27,11 +28,13 @@ const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     // adding listener function
-    const unSubscribe = onAuthStateChangeListener((user) => {
-      // console.log(user);
+    const unSubscribe = onAuthStateChangeListener(async (user) => {
       setUser(user);
+      console.log(user);
       if (user) {
         createUserDocFromAuth(user);
+        const userData = await getUserDataFromCollection(user);
+        setUser((prevUser) => ({ ...prevUser, ...userData })); // Update user with additional data
       }
     });
 

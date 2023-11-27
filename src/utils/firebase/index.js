@@ -23,13 +23,13 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyC-5xA7GqtAhhRojl2qV3Bap6nnfqPbbN8",
-    authDomain: "practice-649fd.firebaseapp.com",
-    projectId: "practice-649fd",
-    storageBucket: "practice-649fd.appspot.com",
-    messagingSenderId: "103084443162",
-    appId: "1:103084443162:web:ab61931b30cc9209a033a3"
-};
+    apiKey: "AIzaSyD7NN2wxbK8YGNW5jL4YMrEGjF1V3JW9wc",
+    authDomain: "trendspotter-7cdca.firebaseapp.com",
+    projectId: "trendspotter-7cdca",
+    storageBucket: "trendspotter-7cdca.appspot.com",
+    messagingSenderId: "221396004584",
+    appId: "1:221396004584:web:397b31792adb56ea13e35d"
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -98,7 +98,7 @@ const createUserDocFromAuth = async (userAuth, additionalInfo = {}) => {
                 ...additionalInfo
             };
             localStorage.setItem('userData', JSON.stringify(userData));
-            console.log('User data stored in localStorage:', userData);
+            // console.log('User data stored in localStorage:', userData);
         } catch (err) {
             console.log("Something went wrong!", err.message)
         }
@@ -107,5 +107,19 @@ const createUserDocFromAuth = async (userAuth, additionalInfo = {}) => {
     return userDocRef;
 }
 
+const getUserDataFromCollection = async (userAuth) => {
+    const docRef = doc(db, "user", userAuth.uid);
+    const docSnap = await getDoc(docRef);
 
-export { signInWithGooglePopup, createUserDocFromAuth, createUserForGoogle, signInAuthForGoogle, onAuthStateChangeListener, signOutUser }
+    if (docSnap.exists()) {
+        // console.log("Document data:", docSnap.data());
+        return docSnap.data();
+    } else {
+        // docSnap.data() will be undefined in this case
+        console.log("No such document!");
+        return null;
+    }
+}
+
+
+export { signInWithGooglePopup, createUserDocFromAuth, createUserForGoogle, signInAuthForGoogle, onAuthStateChangeListener, signOutUser, getUserDataFromCollection }

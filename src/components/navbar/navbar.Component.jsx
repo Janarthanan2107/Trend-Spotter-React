@@ -90,7 +90,6 @@ const Navbar = () => {
           {user ? (
             <>
               <span className="user">
-                <img src={user.photoURL} alt={user.displayName} />
                 <p>{user.displayName}</p>
               </span>
               <NavLink

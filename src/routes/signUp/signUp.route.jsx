@@ -9,6 +9,7 @@ import trendSpotterLogo from "/trendSpotterLogo.svg";
 import {
   createUserDocFromAuth,
   createUserForGoogle,
+  signOutUser
 } from "../../utils/firebase";
 import { useUserContext } from "../../context/user.Context";
 
@@ -43,6 +44,8 @@ const SignUp = () => {
       setDisplayName("");
       setEmail("");
       setPassword("");
+
+      signOutUser()
 
       // page navigation
       signInPage()

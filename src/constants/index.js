@@ -7,11 +7,11 @@ const categories = [
         products: [
             {
                 id: 1,
-                title: "Mens Casual Premium Slim Fit T-Shirts",
+                title: "Wrangler Rodeo Cowboy T-Shirt",
                 price: 300,
-                image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+                image: "https://www.rods.com/media/catalog/product/cache/48e2754e2a93d015b972b97f3e8dc393/1/1/110402_A.jpg",
                 rating: {
-                    rate: 4,
+                    rate: 3,
                     count: 210
                 }
             },
@@ -21,7 +21,7 @@ const categories = [
                 price: 350,
                 image: "https://www.rods.com/media/catalog/product/cache/48e2754e2a93d015b972b97f3e8dc393/7/7/77714.jpg",
                 rating: {
-                    rate: 4,
+                    rate: 5,
                     count: 290
                 }
             },
@@ -31,27 +31,37 @@ const categories = [
                 price: 320,
                 image: "https://www.rods.com/media/catalog/product/cache/48e2754e2a93d015b972b97f3e8dc393/7/7/77713.jpg",
                 rating: {
-                    rate: 4,
+                    rate: 3,
                     count: 50
                 }
             },
             {
                 id: 4,
-                title: "Amazing Custom T-shirt Design",
+                title: "Wrangler Buffalo Trace Kentucky Green T-Shirt",
                 price: 250,
-                image: "https://www.seoclerk.com/pics/653982-19Rsnl1548609749.jpg",
+                image: "https://www.rods.com/media/catalog/product/cache/48e2754e2a93d015b972b97f3e8dc393/5/2/52539_v.jpg",
                 rating: {
-                    rate: 4,
+                    rate: 5,
                     count: 150
                 }
             },
             {
                 id: 5,
-                title: "Amazing Custom T-shirt Design - Naruto",
+                title: "Wrangler Buffalo Trace Dark Mash T-Shirt",
                 price: 250,
-                image: "https://2.bp.blogspot.com/-yZ0F-7OyUBQ/XQi-VWJ76wI/AAAAAAAAAP0/6PJnbHl2WgoFdU4h3PVVo4EQKdJby4xaACLcBGAs/s1600/61j6MiWe-CL._UL1150_.jpg",
+                image: "https://www.rods.com/media/catalog/product/cache/48e2754e2a93d015b972b97f3e8dc393/5/2/52540_v.jpg",
                 rating: {
                     rate: 4,
+                    count: 20
+                }
+            },
+            {
+                id: 6,
+                title: "Cinch Cattleman's Outpost T-Shirt",
+                price: 250,
+                image: "https://www.rods.com/media/catalog/product/cache/48e2754e2a93d015b972b97f3e8dc393/1/3/13019_A.jpg",
+                rating: {
+                    rate: 3,
                     count: 20
                 }
             }
@@ -62,6 +72,68 @@ const categories = [
         title: "Jackets",
         description: "Casual Jackets for Men's",
         imgUrl: "https://i.pinimg.com/736x/83/31/98/833198b75cf414689b9a26b4169e9051.jpg",
+        products: [
+            {
+                id: 1,
+                title: "EKLENTSON Men's Winter Jacket",
+                price: 300,
+                image: "https://m.media-amazon.com/images/I/61B8GLTxD1L._AC_SX679_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 210
+                }
+            },
+            {
+                id: 2,
+                title: "MAGCOMSEN Men's Winter Coat Military Jacket",
+                price: 350,
+                image: "https://m.media-amazon.com/images/I/81YFuxY173L._AC_SX522_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 290
+                }
+            },
+            {
+                id: 3,
+                title: "MAGCOMSEN Men's Winter Jacket Lined Sherpa Jacket",
+                price: 320,
+                image: "https://m.media-amazon.com/images/I/81habRWowZL._AC_SX466_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 50
+                }
+            },
+            {
+                id: 4,
+                title: "CRYSULLY Men's Winter Casual Thicken Jacket",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/71QtgUCzRlL._AC_SX569_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 150
+                }
+            },
+            {
+                id: 5,
+                title: "wantdo Men's Soft Shell Jackets",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/71aGgPemPtL._AC_SX522_.jpg",
+                rating: {
+                    rate: 4,
+                    count: 20
+                }
+            },
+            {
+                id: 6,
+                title: "Men's Hooded Softshell Jacket",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/81vyvBRw1vL._AC_SX466_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 20
+                }
+            }
+        ]
         
     },
     {

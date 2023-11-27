@@ -20,7 +20,10 @@ const Products = () => {
             <p>{categoryId}</p>
           </>
         ) : (
-          ""
+          <>
+            <BsArrowRight />
+            <p>All Products</p>
+          </>
         )}
       </div>
       <ProductItems categories={categories} />

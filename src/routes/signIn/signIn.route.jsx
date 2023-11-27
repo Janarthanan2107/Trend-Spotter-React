@@ -38,7 +38,7 @@ const SignIn = () => {
     e.preventDefault();
     try {
       const { user } = await signInAuthForGoogle(email, password);
-      console.log(user);
+      // console.log(user);
 
       // navigate to home
       logInToHome();
@@ -53,12 +53,6 @@ const SignIn = () => {
       }
     }
   };
-
-  useEffect(() => {
-    if (user) {
-      logInToHome();
-    }
-  }, []);
 
   return (
     <div className="signIn-container">
