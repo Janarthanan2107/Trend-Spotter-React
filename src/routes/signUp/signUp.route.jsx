@@ -10,7 +10,7 @@ import trendSpotterLogo from "/trendSpotterLogo.svg";
 import {
   createUserDocFromAuth,
   createUserForGoogle,
-  signOutUser
+  signOutUser,
 } from "../../utils/firebase";
 import { useUserContext } from "../../context/user.Context";
 
@@ -46,21 +46,24 @@ const SignUp = () => {
       setEmail("");
       setPassword("");
 
-      signOutUser()
+      signOutUser();
 
       // page navigation
-      signInPage()
-
+      signInPage();
     } catch (err) {
       console.log("Something went wrong!!..", err.message);
       console.log(err.code);
       if (err.code === "auth/email-already-in-use") {
         // toast message to be added
-        toast.error("Email is already in use!")
+        toast.error("Email is already in use!");
       }
       if (err.code === "auth/invalid-email") {
         // toast message to be added
-        toast.error("Invalid Email address!")
+        toast.error("Invalid Email address!");
+      }
+      if (err.code === "auth/weak-password") {
+        // toast message to be added
+        toast.error("Password should be at least 6 characters!");
       }
     }
   };
@@ -73,7 +76,19 @@ const SignUp = () => {
 
   return (
     <div className="signIn-container">
-      <Toaster />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          // Define default options
+          className: "",
+          duration: 5000,
+          style: {
+            background: "#363636",
+            color: "#fff",
+            marginTop: "50px",
+          },
+        }}
+      />
       {/* image section */}
       <div className="image-container"></div>
       {/* form section */}

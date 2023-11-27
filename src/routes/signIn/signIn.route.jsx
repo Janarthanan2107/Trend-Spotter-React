@@ -57,7 +57,19 @@ const SignIn = () => {
 
   return (
     <div className="signIn-container">
-      <Toaster />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          // Define default options
+          className: "",
+          duration: 5000,
+          style: {
+            background: "#363636",
+            color: "#fff",
+            marginTop:"50px"
+          },
+        }}
+      />
       {/* image section */}
       <div className="image-container"></div>
       {/* form section */}
