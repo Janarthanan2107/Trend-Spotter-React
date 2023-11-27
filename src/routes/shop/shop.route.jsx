@@ -1,10 +1,12 @@
+// style
 import "../shop/shop.style.scss";
+import Products from "../../components/products/products.Component";
 
 const Shop = () => {
   return (
-    <div>
-      <h1>Shop</h1>
-    </div>
+    <>
+      <Products />
+    </>
   );
 };
 

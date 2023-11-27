@@ -56,7 +56,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if (user) {
-      logoutToHome();
+      logInToHome();
     }
   }, []);
 
