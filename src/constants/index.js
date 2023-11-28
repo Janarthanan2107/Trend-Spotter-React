@@ -9,7 +9,7 @@ const categories = [
                 id: 1,
                 title: "Wrangler Rodeo Cowboy T-Shirt",
                 price: 300,
-                image: "https://www.rods.com/media/catalog/product/cache/48e2754e2a93d015b972b97f3e8dc393/1/1/110402_A.jpg",
+                image: "https://m.media-amazon.com/images/I/61rDG+kQImL._AC_UL960_FMwebp_QL65_.jpg",
                 rating: {
                     rate: 3,
                     count: 210
@@ -17,9 +17,9 @@ const categories = [
             },
             {
                 id: 2,
-                title: "Ariat USA Black Wordmark Short Sleeve T-Shirt - Medium",
+                title: "Ariat USA Black Wordmark full Sleeve T-Shirt - Medium",
                 price: 350,
-                image: "https://www.rods.com/media/catalog/product/cache/48e2754e2a93d015b972b97f3e8dc393/7/7/77714.jpg",
+                image: "https://m.media-amazon.com/images/I/91U3srtJeYL._AC_UL480_FMwebp_QL65_.jpg",
                 rating: {
                     rate: 5,
                     count: 290
@@ -29,7 +29,7 @@ const categories = [
                 id: 3,
                 title: "Ariat Liberty USA Brown Digi Camo Short Sleeve T-Shirt",
                 price: 320,
-                image: "https://www.rods.com/media/catalog/product/cache/48e2754e2a93d015b972b97f3e8dc393/7/7/77713.jpg",
+                image: "https://m.media-amazon.com/images/I/71zRMNf2uvL._AC_UL480_FMwebp_QL65_.jpg",
                 rating: {
                     rate: 3,
                     count: 50
@@ -39,7 +39,7 @@ const categories = [
                 id: 4,
                 title: "Wrangler Buffalo Trace Kentucky Green T-Shirt",
                 price: 250,
-                image: "https://www.rods.com/media/catalog/product/cache/48e2754e2a93d015b972b97f3e8dc393/5/2/52539_v.jpg",
+                image: "https://m.media-amazon.com/images/I/71RyQBggmbL._AC_UL480_FMwebp_QL65_.jpg",
                 rating: {
                     rate: 5,
                     count: 150
@@ -49,7 +49,7 @@ const categories = [
                 id: 5,
                 title: "Wrangler Buffalo Trace Dark Mash T-Shirt",
                 price: 250,
-                image: "https://www.rods.com/media/catalog/product/cache/48e2754e2a93d015b972b97f3e8dc393/5/2/52540_v.jpg",
+                image: "https://m.media-amazon.com/images/I/612Ueesdn4L._AC_UL480_FMwebp_QL65_.jpg",
                 rating: {
                     rate: 4,
                     count: 20
@@ -59,7 +59,7 @@ const categories = [
                 id: 6,
                 title: "Cinch Cattleman's Outpost T-Shirt",
                 price: 250,
-                image: "https://www.rods.com/media/catalog/product/cache/48e2754e2a93d015b972b97f3e8dc393/1/3/13019_A.jpg",
+                image: "https://m.media-amazon.com/images/I/51VJGDPcICL._AC_UL480_FMwebp_QL65_.jpg",
                 rating: {
                     rate: 3,
                     count: 20
@@ -141,6 +141,68 @@ const categories = [
         title: "Shoes",
         description: "Stylish Sneakers for Men's",
         imgUrl: "http://yesofcorsa.com/wp-content/uploads/2019/11/Male-Sneakers-Model-Desktop-Wallpaper.jpg",
+        products: [
+            {
+                id: 1,
+                title: "Feethit Mens Non Slip Walking Sneakers Lightweight Breathable Slip on Running Shoes",
+                price: 300,
+                image: "https://m.media-amazon.com/images/I/61-DL6P+HgL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 210
+                }
+            },
+            {
+                id: 2,
+                title: "Ahico Mens Fashion Sneakers High Top Walking Shoes Sport Athletic Casual Shoe Vogue Stylish Men",
+                price: 350,
+                image: "https://m.media-amazon.com/images/I/61V58VibShL._AC_SY575_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 290
+                }
+            },
+            {
+                id: 3,
+                title: "Feethit Mens Slip On Walking Shoes Lightweight Breathable Non Slip Running Shoes",
+                price: 320,
+                image: "https://m.media-amazon.com/images/I/71MUqFMkDML._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 50
+                }
+            },
+            {
+                id: 4,
+                title: "Jousen Men's Fashion Sneakers High Top Dress Sneakers Boots for Men",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/81WTR1lXm7L._AC_SX695_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 150
+                }
+            },
+            {
+                id: 5,
+                title: "Slow Man High Top Men's Sneakers",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/61VM2INP77L._AC_SY575_.jpg",
+                rating: {
+                    rate: 4,
+                    count: 20
+                }
+            },
+            {
+                id: 6,
+                title: "Ben Sherman Men's Harvey Sneaker",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/61pzO5dMGEL._AC_SY575_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 20
+                }
+            }
+        ]
         
     },
     {
@@ -148,7 +210,68 @@ const categories = [
         title: "Accessories",
         description: "Accessories for Men's for every outfit",
         imgUrl: "https://lh3.googleusercontent.com/KqQDMooNHD1GsKvJvVqJkDzj1baKFMny7Ov848lXW3GzdSLSEhbOFuHjCg0DIYtVNb9ysHrKSaxWDC7Aj7ZlZRu7lqjxiq12KYYZluo=w1000",
-        
+        products: [
+            {
+                id: 1,
+                title: "HENGOSEN Aviator Sunglasses with Carbon Fiber Temple for Men",
+                price: 300,
+                image: "https://m.media-amazon.com/images/I/618mOPA2lfL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 210
+                }
+            },
+            {
+                id: 2,
+                title: "VOOTAI Slim Wallet for Men, Stocking Stuffers for Men",
+                price: 350,
+                image: "https://m.media-amazon.com/images/I/81K8DG6U3PL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 290
+                }
+            },
+            {
+                id: 3,
+                title: "Syhood Winter Fleece Balaclava Ski Tactical Heavyweight Balaclava",
+                price: 320,
+                image: "https://m.media-amazon.com/images/I/71qLt9oXitL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 50
+                }
+            },
+            {
+                id: 4,
+                title: "Neleus Men's Workout Tank Tops 3 Pack Sleeveless Running Shirts",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/71eeBqVibbL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 150
+                }
+            },
+            {
+                id: 5,
+                title: "Mens Leather Bracelet - Mens Bracelets with Genuine Leather and 316L Magnetic Stainlness Steel Clasp",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/71GhLB9OVGL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 4,
+                    count: 20
+                }
+            },
+            {
+                id: 6,
+                title: "Ben Sherman Men's Harvey Sneaker",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/51VQnIf8-xL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 20
+                }
+            }
+        ]
     },
     {
         id: 5,

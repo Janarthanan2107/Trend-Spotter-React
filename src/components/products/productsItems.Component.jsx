@@ -33,7 +33,7 @@ const ProductItems = ({ categories }) => {
                         <img src={product.image} alt="t-shirt" />
                       </span>
                       <span className="title-container">
-                        <p>Amazing Custom T-shirt Design</p>
+                        <p>{product.title}</p>
 
                         <ProductRating rate={product.rating.rate} />
                       </span>
