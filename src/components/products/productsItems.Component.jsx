@@ -1,13 +1,13 @@
 import { FaStar } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 
-const ProductItems = ({ categories }) => {
+const ProductItems = ({ categories, products }) => {
   const ProductRating = ({ rate }) => {
     const starArray = Array.from({ length: rate });
 
     return (
       <div className="rating">
-        {starArray.map((_, index) => (
+        {starArray.map((item, index) => (
           <FaStar key={index} />
         ))}
       </div>
@@ -18,7 +18,7 @@ const ProductItems = ({ categories }) => {
     <div className="product-category-container">
       {categories.map((category) => {
         return (
-          <>
+          <span key={category.id}>
             <div className="product-category">
               <p className="product-category-title">{category.title}</p>
             </div>
@@ -41,13 +41,16 @@ const ProductItems = ({ categories }) => {
                         <p>$145.00</p>
                       </span>
                       <div className="cart-btn-container">
-                        <button><FaCartShopping/>Add to cart</button>
+                        <button>
+                          <FaCartShopping />
+                          Add to cart
+                        </button>
                       </div>
                     </div>
                   );
                 })}
             </div>
-          </>
+          </span>
         );
       })}
     </div>

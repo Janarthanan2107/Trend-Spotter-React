@@ -5,9 +5,11 @@ import { BsArrowRight } from "react-icons/bs";
 
 // index.js constant files
 import { categories } from "../../constants";
+
+// component
 import ProductItems from "./productsItems.Component";
 
-const Products = () => {
+const Products = ({ products }) => {
   const { categoryId } = useParams();
 
   return (
@@ -26,7 +28,10 @@ const Products = () => {
           </>
         )}
       </div>
-      <ProductItems categories={categories} />
+      <ProductItems
+        categories={categories}
+        products={products}
+      />
     </div>
   );
 };
