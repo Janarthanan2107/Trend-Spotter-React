@@ -1,7 +1,15 @@
 import { FaStar } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 
-const ProductItems = ({ categories, products }) => {
+import { useCartGlobalContext } from "../../context/cart.Context";
+
+const ProductItems = ({ products }) => {
+  const { addItemToCart } = useCartGlobalContext();
+
+  const addToCartHandler = (id) => {
+    addItemToCart(id);
+  };
+
   const ProductRating = ({ rate }) => {
     const starArray = Array.from({ length: rate });
 
@@ -16,7 +24,7 @@ const ProductItems = ({ categories, products }) => {
 
   return (
     <div className="product-category-container">
-      {categories.map((category) => {
+      {products.map((category) => {
         return (
           <span key={category.id}>
             <div className="product-category">
@@ -41,7 +49,7 @@ const ProductItems = ({ categories, products }) => {
                         <p>$145.00</p>
                       </span>
                       <div className="cart-btn-container">
-                        <button>
+                        <button onClick={() => addToCartHandler(product)}>
                           <FaCartShopping />
                           Add to cart
                         </button>
