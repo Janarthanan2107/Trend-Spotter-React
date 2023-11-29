@@ -56,6 +56,13 @@ const CartProvider = ({ children }) => {
   const [cartCount, setCartCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
 
+  const newCartCount = cartItems.reduce((prev, curr) => {
+    return prev + curr.quantity;
+  }, 0);
+
+  console.log(newCartCount);
+
+  // add ,delete ,update function
   const addItemToCart = (cartItemToAdd) => {
     setCartItems(addCartItem(cartItems, cartItemToAdd));
   };
@@ -77,6 +84,7 @@ const CartProvider = ({ children }) => {
     setCartTotal,
 
     // functions
+    newCartCount,
     addItemToCart,
     removeItemFromCart,
     clearItemFromCart,
