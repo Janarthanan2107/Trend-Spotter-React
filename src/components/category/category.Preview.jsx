@@ -1,11 +1,11 @@
 import { FaStar } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
-
 import { useCartGlobalContext } from "../../context/cart.Context";
 import { useNavigate } from "react-router-dom";
 
-const ProductItems = ({ products, categoryId }) => {
+const CatePreview = ({ products }) => {
   const { addItemToCart } = useCartGlobalContext();
+  let navigate = useNavigate();
 
   const addToCartHandler = (id) => {
     addItemToCart(id);
@@ -23,27 +23,28 @@ const ProductItems = ({ products, categoryId }) => {
     );
   };
 
-  let navigate = useNavigate();
-
-  const navigateToShop = () => {
-    navigate(`/shop`);
+  const navigateToCategory = (id) => {
+    console.log(id)
+    navigate(`/shop/${id}`);
   };
 
   return (
     <div className="product-category-container">
-      {products
-        .filter((product) => product.title === categoryId)
-        .map((category) => {
-          return (
-            <span key={category.id}>
-              <div className="product-category">
-                <p className="product-category-title">{category.title}</p>
-                <button onClick={navigateToShop}>All Category</button>
-              </div>
+      {products.map((category) => {
+        return (
+          <span key={category.id}>
+            <div className="product-category">
+              <p className="product-category-title">{category.title}</p>
+              <button onClick={() => navigateToCategory(category.title)}>
+                Show more
+              </button>
+            </div>
 
-              <div className="product-card-container">
-                {category.products &&
-                  category.products.map((product) => {
+            <div className="product-card-container">
+              {category.products &&
+                category.products
+                  .filter((product, index) => index < 3)
+                  .map((product) => {
                     return (
                       <div className="product-card" key={product.id}>
                         <span className="img-container">
@@ -67,12 +68,12 @@ const ProductItems = ({ products, categoryId }) => {
                       </div>
                     );
                   })}
-              </div>
-            </span>
-          );
-        })}
+            </div>
+          </span>
+        );
+      })}
     </div>
   );
 };
 
-export default ProductItems;
+export default CatePreview;

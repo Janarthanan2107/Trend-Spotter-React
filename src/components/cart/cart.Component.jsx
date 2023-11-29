@@ -16,21 +16,20 @@ const Cart = () => {
     <div className="cart">
       <div className="cart-heading">
         <h1>Trends Cart</h1>
+        <button>Continue to Shipping</button>
       </div>
-        {cartItems.length > 0 ? (
-          <>
-            {cartItems.map((cartItem) => {
-              return (
-                <CartItemComponent key={cartItem.id} cartItem={cartItem} />
-              );
-            })}
-          </>
-        ) : (
-          <div className="message">
-            <h1>No Records found!!</h1>
-            <button onClick={gotoShop}>Go to shop</button>
-          </div>
-        )}
+      {cartItems.length > 0 ? (
+        <>
+          {cartItems.map((cartItem) => {
+            return <CartItemComponent key={cartItem.id} cartItem={cartItem} />;
+          })}
+        </>
+      ) : (
+        <div className="message">
+          <h1>No Records found!!</h1>
+          <button onClick={gotoShop}>Go to shop</button>
+        </div>
+      )}
 
       <div className="total">
         <p>Total:</p>

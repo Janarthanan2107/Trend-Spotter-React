@@ -1,5 +1,5 @@
 // import context for application
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 // create a  functions for add update delete from cart
 const addCartItem = (cartItems, cartItemToAdd) => {
@@ -56,11 +56,21 @@ const CartProvider = ({ children }) => {
   const [cartCount, setCartCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
 
-  const newCartCount = cartItems.reduce((prev, curr) => {
-    return prev + curr.quantity;
-  }, 0);
+  useEffect(() => {
+    const newCartCount = cartItems.reduce((prev, curr) => {
+      return prev + curr.quantity;
+    }, 0);
 
-  console.log(newCartCount);
+    setCartCount(newCartCount);
+  }, [cartItems]);
+
+  useEffect(() => {
+    const newCartTotal = cartItems.reduce((prev, curr) => {
+      return prev + curr.quantity * curr.price;
+    }, 0);
+
+    setCartTotal(newCartTotal);
+  }, [cartItems]);
 
   // add ,delete ,update function
   const addItemToCart = (cartItemToAdd) => {
@@ -84,7 +94,6 @@ const CartProvider = ({ children }) => {
     setCartTotal,
 
     // functions
-    newCartCount,
     addItemToCart,
     removeItemFromCart,
     clearItemFromCart,

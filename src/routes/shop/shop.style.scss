@@ -30,10 +30,28 @@
 
   .product-category {
     padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
 
     .product-category-title {
       font-size: 20px;
       font-weight: 600;
+    }
+
+    button {
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      border: 0.5px;
+      transition: 0.2s ease-in;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      &:hover {
+        background-color: #6366f1;
+        color: white;
+      }
     }
   }
 

@@ -3,11 +3,9 @@ import { useParams } from "react-router-dom";
 // icons
 import { BsArrowRight } from "react-icons/bs";
 
-// index.js constant files
-import { categories } from "../../constants";
-
 // component
 import ProductItems from "./productsItems.Component";
+import CatePreview from "../category/category.Preview";
 
 const Products = ({ products }) => {
   const { categoryId } = useParams();
@@ -19,19 +17,20 @@ const Products = ({ products }) => {
         {categoryId ? (
           <>
             <BsArrowRight />
-            <p>{categoryId}</p>
+            <p>All Category / {categoryId}</p>
           </>
         ) : (
           <>
             <BsArrowRight />
-            <p>All Products</p>
+            <p>All Category</p>
           </>
         )}
       </div>
-      <ProductItems
-        categories={categories}
-        products={products}
-      />
+      {categoryId ? (
+        <ProductItems products={products} categoryId={categoryId} />
+      ) : (
+        <CatePreview products={products} />
+      )}
     </div>
   );
 };

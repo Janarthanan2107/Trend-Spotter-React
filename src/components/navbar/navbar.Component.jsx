@@ -16,7 +16,7 @@ const Navbar = () => {
   // import database from context
   const { user, logoutHandler } = useUserContext();
 
-  const { newCartCount } = useCartGlobalContext();
+  const { cartCount } = useCartGlobalContext();
 
   // navigate to home
   let navigate = useNavigate();
@@ -74,7 +74,7 @@ const Navbar = () => {
             >
               Cart
             </NavLink>
-            <p className="cart-count">{newCartCount}</p>
+            <p className="cart-count">{cartCount}</p>
           </li>
           <li>
             <NavLink
