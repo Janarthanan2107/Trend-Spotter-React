@@ -8,13 +8,15 @@ import trendSpotterLogo from "/trendSpotterLogo.svg";
 
 // context function
 import { useUserContext } from "../../context/user.Context";
-
+import { useCartGlobalContext } from "../../context/cart.Context";
 // styles
 import "../navbar/navbar.style.scss";
 
 const Navbar = () => {
   // import database from context
   const { user, logoutHandler } = useUserContext();
+
+  const { newCartCount } = useCartGlobalContext();
 
   // navigate to home
   let navigate = useNavigate();
@@ -63,7 +65,7 @@ const Navbar = () => {
               Shop
             </NavLink>
           </li>
-          <li>
+          <li className="cart-list">
             <NavLink
               to="cart"
               className={({ isActive }) =>
@@ -72,6 +74,7 @@ const Navbar = () => {
             >
               Cart
             </NavLink>
+            <p className="cart-count">{newCartCount}</p>
           </li>
           <li>
             <NavLink
