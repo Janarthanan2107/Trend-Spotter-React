@@ -341,27 +341,210 @@ const categories = [
             }
         ]
     },
-    // {
-    //     id: 6,
-    //     title: "Casuals",
-    //     description: "Trendy casuals for Men's",
-    //     imgUrl: "https://cdn.luxe.digital/media/sites/7/2019/01/11174347/casual-dress-code-men-street-style-luxe-digital.jpg",
-        
-    // },
-    // {
-    //     id: 7,
-    //     title: "Blazers",
-    //     description: "Stunning Blazers for Men's",
-    //     imgUrl: "https://i.pinimg.com/originals/b1/45/19/b1451967a96853ed4b8511c106bb9842.jpg",
-        
-    // },
-    // {
-    //     id: 8,
-    //     title: "Hoodie",
-    //     description: "Hoodie's for Men's which makes more stylish",
-    //     imgUrl: "https://i.pinimg.com/originals/b0/e3/7e/b0e37e5688e63ec962ee859f688e54ed.jpg",
-        
-    // },
+    {
+        id: 6,
+        title: "Casuals",
+        description: "Trendy casuals for Men's",
+        imgUrl: "https://cdn.luxe.digital/media/sites/7/2019/01/11174347/casual-dress-code-men-street-style-luxe-digital.jpg",
+        products: [
+            {
+                id: 1,
+                title: "RK HUB Men's Casual Pajama Sets and Shirt",
+                price: 300,
+                image: "https://m.media-amazon.com/images/I/41sgiQKHM2L._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 210
+                }
+            },
+            {
+                id: 2,
+                title: "DHRUVI TRENDZ Men Summer Shirts for Men",
+                price: 350,
+                image: "https://m.media-amazon.com/images/I/71U6rN80RIL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 290
+                }
+            },
+            {
+                id: 3,
+                title: "VIDA LOCA Cotton Casual Shirt",
+                price: 320,
+                image: "https://m.media-amazon.com/images/I/61nq+UoKf+L._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 50
+                }
+            },
+            {
+                id: 4,
+                title: "Unisex Night Dress || Rayon Multi Printed Short",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/71Z615Trj8L._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 150
+                }
+            },
+            {
+                id: 5,
+                title: "JB Fashion Casual Shirt for Men|| Shirt for Men|| Men Stylish Shirt ||",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/71MaGTXl7ML._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 4,
+                    count: 20
+                }
+            },
+            {
+                id: 6,
+                title: "Men Regular Fit Rayon Shirt",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/518kb55qKdL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 20
+                }
+            }
+        ]
+    },
+    {
+        id: 7,
+        title: "Blazers",
+        description: "Stunning Blazers for Men's",
+        imgUrl: "https://i.pinimg.com/originals/b1/45/19/b1451967a96853ed4b8511c106bb9842.jpg",
+        products: [
+            {
+                id: 1,
+                title: "Mens Blazers Black Coat Sports Jacket Business",
+                price: 300,
+                image: "https://m.media-amazon.com/images/I/31CeCs+qTiL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 210
+                }
+            },
+            {
+                id: 2,
+                title: "Generic Formal Blazer",
+                price: 350,
+                image: "https://m.media-amazon.com/images/I/41Dwn-isdcL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 290
+                }
+            },
+            {
+                id: 3,
+                title: "Favoroski Mens Blazer",
+                price: 320,
+                image: "https://m.media-amazon.com/images/I/81kCdgTopRL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 50
+                }
+            },
+            {
+                id: 4,
+                title: "Random Stripe Solid Single Breasted for Men Black",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/41zpKEj9qUL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 150
+                }
+            },
+            {
+                id: 5,
+                title: "JB Fashion Casual Shirt for Men|| Shirt for Men|| Men Stylish Shirt ||",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/71MaGTXl7ML._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 4,
+                    count: 20
+                }
+            },
+            {
+                id: 6,
+                title: "Blazer for Men for Party(Dark Blue)",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/41I7MWl-IOL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 20
+                }
+            }
+        ] 
+    },
+    {
+        id: 8,
+        title: "Hoodie",
+        description: "Hoodie's for Men's which makes more stylish",
+        imgUrl: "https://i.pinimg.com/originals/b0/e3/7e/b0e37e5688e63ec962ee859f688e54ed.jpg",
+        products: [
+            {
+                id: 1,
+                title: "Lymio Hoodies || Sweatshirt for Unisex",
+                price: 300,
+                image: "https://m.media-amazon.com/images/I/71cBRecEqLL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 210
+                }
+            },
+            {
+                id: 2,
+                title: "MORE & MORE Unisex-Adult Cotton Hooded Neck Don’t Quit Printed Hoodie",
+                price: 350,
+                image: "https://m.media-amazon.com/images/I/510SGdMK0BL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 290
+                }
+            },
+            {
+                id: 3,
+                title: "Trendy Printed Men's Hoodies",
+                price: 320,
+                image: "https://m.media-amazon.com/images/I/51Oa8b-xdNL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 50
+                }
+            },
+            {
+                id: 4,
+                title: "BE SAVAGE Do Epic Unisex Oversize Hoodie",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/71qKaCHvIlL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 150
+                }
+            },
+            {
+                id: 5,
+                title:"Veirdo Men Hoodie",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/51+diCQf+9L._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 4,
+                    count: 20
+                }
+            },
+            {
+                id: 6,
+                title: "The Modern Soul Avenger Men Hoodie Printed Sweatshirt",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/51Hz7KZL2TL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 20
+                }
+            }
+        ]
+    },
 ]
 
 export { categories }

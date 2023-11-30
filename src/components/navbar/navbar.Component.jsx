@@ -76,7 +76,7 @@ const Navbar = () => {
             </NavLink>
             <p className="cart-count">{cartCount}</p>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="contact"
               className={({ isActive }) =>
@@ -85,7 +85,7 @@ const Navbar = () => {
             >
               Contact
             </NavLink>
-          </li>
+          </li> */}
         </ul>
 
         {/* signIn */}
