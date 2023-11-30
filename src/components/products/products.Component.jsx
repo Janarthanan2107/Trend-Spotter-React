@@ -27,9 +27,13 @@ const Products = ({ products }) => {
         )}
       </div>
       {categoryId ? (
-        <ProductItems products={products} categoryId={categoryId} />
+        <>
+          <ProductItems products={products} />
+        </>
       ) : (
-        <CatePreview products={products} />
+        <>
+          <CatePreview products={products} />
+        </>
       )}
     </div>
   );

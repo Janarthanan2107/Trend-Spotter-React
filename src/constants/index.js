@@ -278,29 +278,90 @@ const categories = [
         title: "Hats",
         description: "Stylish Hats for Men's",
         imgUrl: "https://i.pinimg.com/originals/04/b3/3f/04b33f8059ce671b3569b7c4bb28f7a3.jpg",
-        
+        products: [
+            {
+                id: 1,
+                title: "SELLORIA - Branded hat for stylish men's",
+                price: 300,
+                image: "https://m.media-amazon.com/images/I/41OgLEtNIxL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 210
+                }
+            },
+            {
+                id: 2,
+                title: "Boldfit Boldfit Head Caps for Men",
+                price: 350,
+                image: "https://m.media-amazon.com/images/I/51iWJwdpjXL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 290
+                }
+            },
+            {
+                id: 3,
+                title: "JAZAA - Bucket Hat for Women & Men",
+                price: 320,
+                image: "https://m.media-amazon.com/images/I/511bc6uY14L._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 50
+                }
+            },
+            {
+                id: 4,
+                title: "ILU - Cap for Men & Women",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/91+yD3UV+jL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 5,
+                    count: 150
+                }
+            },
+            {
+                id: 5,
+                title: "UMANI - Cotton with Jute Classic Design Fedora Hats",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/81IfU-cueqL._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 4,
+                    count: 20
+                }
+            },
+            {
+                id: 6,
+                title: "Jockey - CP21 Polyester Solid Cap with Adjustable Back Closure",
+                price: 250,
+                image: "https://m.media-amazon.com/images/I/51hwB7uvlzS._AC_UL480_FMwebp_QL65_.jpg",
+                rating: {
+                    rate: 3,
+                    count: 20
+                }
+            }
+        ]
     },
-    {
-        id: 6,
-        title: "Casuals",
-        description: "Trendy casuals for Men's",
-        imgUrl: "https://cdn.luxe.digital/media/sites/7/2019/01/11174347/casual-dress-code-men-street-style-luxe-digital.jpg",
+    // {
+    //     id: 6,
+    //     title: "Casuals",
+    //     description: "Trendy casuals for Men's",
+    //     imgUrl: "https://cdn.luxe.digital/media/sites/7/2019/01/11174347/casual-dress-code-men-street-style-luxe-digital.jpg",
         
-    },
-    {
-        id: 7,
-        title: "Blazers",
-        description: "Stunning Blazers for Men's",
-        imgUrl: "https://i.pinimg.com/originals/b1/45/19/b1451967a96853ed4b8511c106bb9842.jpg",
+    // },
+    // {
+    //     id: 7,
+    //     title: "Blazers",
+    //     description: "Stunning Blazers for Men's",
+    //     imgUrl: "https://i.pinimg.com/originals/b1/45/19/b1451967a96853ed4b8511c106bb9842.jpg",
         
-    },
-    {
-        id: 8,
-        title: "Hoodie",
-        description: "Hoodie's for Men's which makes more stylish",
-        imgUrl: "https://i.pinimg.com/originals/b0/e3/7e/b0e37e5688e63ec962ee859f688e54ed.jpg",
+    // },
+    // {
+    //     id: 8,
+    //     title: "Hoodie",
+    //     description: "Hoodie's for Men's which makes more stylish",
+    //     imgUrl: "https://i.pinimg.com/originals/b0/e3/7e/b0e37e5688e63ec962ee859f688e54ed.jpg",
         
-    },
+    // },
 ]
 
 export { categories }

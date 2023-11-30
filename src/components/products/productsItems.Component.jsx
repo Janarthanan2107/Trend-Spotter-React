@@ -1,27 +1,9 @@
-import { FaStar } from "react-icons/fa";
-import { FaCartShopping } from "react-icons/fa6";
+import { useNavigate, useParams } from "react-router-dom";
+import ProductCard from "./productCard.Component";
 
-import { useCartGlobalContext } from "../../context/cart.Context";
-import { useNavigate } from "react-router-dom";
-
-const ProductItems = ({ products, categoryId }) => {
-  const { addItemToCart } = useCartGlobalContext();
-
-  const addToCartHandler = (id) => {
-    addItemToCart(id);
-  };
-
-  const ProductRating = ({ rate }) => {
-    const starArray = Array.from({ length: rate });
-
-    return (
-      <div className="rating">
-        {starArray.map((item, index) => (
-          <FaStar key={index} />
-        ))}
-      </div>
-    );
-  };
+const ProductItems = ({ products }) => {
+  const { categoryId } = useParams();
+  console.log(categoryId);
 
   let navigate = useNavigate();
 
@@ -29,48 +11,30 @@ const ProductItems = ({ products, categoryId }) => {
     navigate(`/shop`);
   };
 
+  // Filter products based on categoryId
+  const filteredProducts = categoryId
+    ? products.filter((category) => category.title === categoryId)
+    : products;
+
+  console.log(filteredProducts);
   return (
     <div className="product-category-container">
-      {products
-        .filter((product) => product.title === categoryId)
-        .map((category) => {
-          return (
-            <span key={category.id}>
-              <div className="product-category">
-                <p className="product-category-title">{category.title}</p>
-                <button onClick={navigateToShop}>All Category</button>
-              </div>
+      {filteredProducts.map((category) => {
+        return (
+          <span key={category.id}>
+            <div className="product-category">
+              <p className="product-category-title">{category.title}</p>
+              <button onClick={navigateToShop}>All category</button>
+            </div>
 
-              <div className="product-card-container">
-                {category.products &&
-                  category.products.map((product) => {
-                    return (
-                      <div className="product-card" key={product.id}>
-                        <span className="img-container">
-                          <p>Men's</p>
-                          <img src={product.image} alt="t-shirt" />
-                        </span>
-                        <span className="title-container">
-                          <p>{product.title}</p>
-
-                          <ProductRating rate={product.rating.rate} />
-                        </span>
-                        <span className="price-container">
-                          <p>$145.00</p>
-                        </span>
-                        <div className="cart-btn-container">
-                          <button onClick={() => addToCartHandler(product)}>
-                            <FaCartShopping />
-                            Add to cart
-                          </button>
-                        </div>
-                      </div>
-                    );
-                  })}
-              </div>
-            </span>
-          );
-        })}
+            <div className="product-card-container">
+              {category.products.map((product) => {
+                return <ProductCard key={product.id} product={product} />;
+              })}
+            </div>
+          </span>
+        );
+      })}
     </div>
   );
 };

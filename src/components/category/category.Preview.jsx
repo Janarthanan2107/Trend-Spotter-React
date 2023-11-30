@@ -7,8 +7,8 @@ const CatePreview = ({ products }) => {
   const { addItemToCart } = useCartGlobalContext();
   let navigate = useNavigate();
 
-  const addToCartHandler = (id) => {
-    addItemToCart(id);
+  const addToCartHandler = (product) => {
+    addItemToCart(product);
   };
 
   const ProductRating = ({ rate }) => {
