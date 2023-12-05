@@ -32,6 +32,7 @@ const ProductItems = ({ products }) => {
                 return <ProductCard key={product.id} product={product} />;
               })}
             </div>
+
           </span>
         );
       })}

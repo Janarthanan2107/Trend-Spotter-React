@@ -11,6 +11,7 @@ import { useUserContext } from "../../context/user.Context";
 import { useCartGlobalContext } from "../../context/cart.Context";
 // styles
 import "../navbar/navbar.style.scss";
+import { useEffect } from "react";
 
 const Navbar = () => {
   // import database from context
@@ -76,16 +77,6 @@ const Navbar = () => {
             </NavLink>
             <p className="cart-count">{cartCount}</p>
           </li>
-          {/* <li>
-            <NavLink
-              to="contact"
-              className={({ isActive }) =>
-                isActive ? "isActive" : "isNotActive"
-              }
-            >
-              Contact
-            </NavLink>
-          </li> */}
         </ul>
 
         {/* signIn */}

@@ -10,6 +10,8 @@ import {
 } from "./routes/index";
 
 import "./App.css";
+import { useUserContext } from "./context/user.Context";
+import { useEffect } from "react";
 
 // providing routers with respective components
 const router = createBrowserRouter([
@@ -34,10 +36,6 @@ const router = createBrowserRouter([
         path: "cart",
         element: <Cart />,
       },
-      // {
-      //   path: "contact",
-      //   element: <Contact />,
-      // },
       {
         path: "signIn",
         element: <SignIn />,
