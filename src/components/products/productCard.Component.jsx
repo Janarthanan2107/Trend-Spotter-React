@@ -3,13 +3,15 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
 
 import { useCartGlobalContext } from "../../context/cart.Context";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useUserContext } from "../../context/user.Context";
 
 const ProductCard = ({ product }) => {
   const { id, image, title, rating, price } = product;
 
   const { addItemToCart } = useCartGlobalContext();
+  const { user } = useUserContext();
 
   // hooks
   const [dialog, setDialog] = useState(false);
@@ -27,6 +29,10 @@ const ProductCard = ({ product }) => {
     addItemToCart(product);
   };
 
+  const userAuthMessage = () => {
+    toast.error("Please Login!");
+  };
+
   const ProductRating = ({ rate }) => {
     const starArray = Array.from({ length: rate });
 
@@ -42,18 +48,18 @@ const ProductCard = ({ product }) => {
   return (
     <div className="product-card">
       <Toaster
-          position="top-right"
-          toastOptions={{
-            // Define default options
-            className: "",
-            duration: 2000,
-            style: {
-              background: "#363636",
-              color: "#fff",
-              marginTop:"50px"
-            },
-          }}
-        />
+        position="top-right"
+        toastOptions={{
+          // Define default options
+          className: "",
+          duration: 2000,
+          style: {
+            background: "#363636",
+            color: "#fff",
+            marginTop: "50px",
+          },
+        }}
+      />
       <span className="img-container" onClick={productDialogOpen}>
         <p>Men's</p>
         <img src={image} alt="t-shirt" />
@@ -67,7 +73,9 @@ const ProductCard = ({ product }) => {
         <p>${price}</p>
       </span>
       <div className="cart-btn-container">
-        <button onClick={() => addToCartHandler(product)}>
+        <button
+          onClick={() => (user ? addToCartHandler(product) : userAuthMessage())}
+        >
           <FaCartShopping />
           Add to cart
         </button>
