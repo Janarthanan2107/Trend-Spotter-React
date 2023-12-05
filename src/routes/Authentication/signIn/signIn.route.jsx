@@ -1,5 +1,5 @@
 // react hooks
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -54,6 +54,12 @@ const SignIn = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      logInToHome()
+    }
+  }, [user]);
 
   return (
     <div className="signIn-container">
