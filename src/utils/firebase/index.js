@@ -20,7 +20,6 @@ import { getFirestore } from "firebase/firestore";
 // To create or overwrite a single document
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyD7NN2wxbK8YGNW5jL4YMrEGjF1V3JW9wc",
@@ -29,7 +28,7 @@ const firebaseConfig = {
     storageBucket: "trendspotter-7cdca.appspot.com",
     messagingSenderId: "221396004584",
     appId: "1:221396004584:web:397b31792adb56ea13e35d"
-  };
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -46,7 +45,6 @@ const signInWithGooglePopup = () => signInWithPopup(auth, provider)
 const createUserForGoogle = async (email, password) => {
     if (!email && !password) return;
     return createUserWithEmailAndPassword(auth, email, password)
-
 }
 
 // sign in with registered account
@@ -122,4 +120,4 @@ const getUserDataFromCollection = async (userAuth) => {
 }
 
 
-export { signInWithGooglePopup, createUserDocFromAuth, createUserForGoogle, signInAuthForGoogle, onAuthStateChangeListener, signOutUser, getUserDataFromCollection }
+export { db, signInWithGooglePopup, createUserDocFromAuth, createUserForGoogle, signInAuthForGoogle, onAuthStateChangeListener, signOutUser, getUserDataFromCollection }

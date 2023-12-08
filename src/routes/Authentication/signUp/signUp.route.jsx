@@ -41,15 +41,15 @@ const SignUp = () => {
       const userDocRef = await createUserDocFromAuth(user, { displayName });
       // console.log(user);
       // console.log(userDocRef);
-
+      
       setDisplayName("");
       setEmail("");
       setPassword("");
-
-      signOutUser();
-
+      
       // page navigation
       signInPage();
+      signOutUser();
+
     } catch (err) {
       console.log("Something went wrong!!..", err.message);
       console.log(err.code);
@@ -72,7 +72,7 @@ const SignUp = () => {
     if (user) {
       signInPage();
     }
-  }, []);
+  }, [user]);
 
   return (
     <div className="signIn-container">

@@ -1,11 +1,13 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import {
+  db,
   signInWithGooglePopup,
   createUserDocFromAuth,
   onAuthStateChangeListener,
   getUserDataFromCollection,
   signOutUser,
 } from "../utils/firebase/index";
+import { collection, getDocs, query } from "firebase/firestore";
 
 // create the context
 const UserContext = createContext();
@@ -40,6 +42,32 @@ const UserContextProvider = ({ children }) => {
 
     return unSubscribe;
   }, []);
+
+  const [userData, setUserData] = useState([]);
+
+  const getData = async () => {
+    try {
+      const userCollection = collection(db, "user");
+      const queries = query(userCollection);
+
+      const querySnapShot = await getDocs(queries);
+
+      let userDataArray = [];
+      querySnapShot.forEach((doc) => {
+        userDataArray.push({ ...doc.data(), id: doc.id });
+      });
+
+      setUserData(userDataArray);
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  console.log(userData);
 
   //   assign the values
   const values = {

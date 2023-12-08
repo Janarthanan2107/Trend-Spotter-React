@@ -55,12 +55,6 @@ const SignIn = () => {
     }
   };
 
-  useEffect(() => {
-    if (user) {
-      logInToHome()
-    }
-  }, [user]);
-
   return (
     <div className="signIn-container">
       <Toaster
