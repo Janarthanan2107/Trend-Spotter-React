@@ -1,4 +1,6 @@
 import { FaStar } from "react-icons/fa";
+import { RiDeleteBin2Line } from "react-icons/ri";
+import { BiSolidPencil } from "react-icons/bi";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
 
@@ -11,7 +13,11 @@ const ProductCard = ({ product }) => {
   const { id, image, title, rating, price } = product;
 
   const { addItemToCart } = useCartGlobalContext();
-  const { user } = useUserContext();
+  const { user, userData } = useUserContext();
+  // finding admin data
+  const admin = userData.find(
+    (item) => item.email === "janarthanan.v2107@gmail.com"
+  );
 
   // hooks
   const [dialog, setDialog] = useState(false);
@@ -79,6 +85,18 @@ const ProductCard = ({ product }) => {
           <FaCartShopping />
           Add to cart
         </button>
+        {user && admin ? (
+          <span>
+            <button>
+              <RiDeleteBin2Line />
+            </button>
+            <button>
+              <BiSolidPencil />
+            </button>
+          </span>
+        ) : (
+          <></>
+        )}
       </div>
 
       <div className="product-dialog">

@@ -52,11 +52,20 @@ const UserContextProvider = ({ children }) => {
 
       const querySnapShot = await getDocs(queries);
 
-      let userDataArray = [];
-      querySnapShot.forEach((doc) => {
-        userDataArray.push({ ...doc.data(), id: doc.id });
+      const userDataArray = querySnapShot.docs.map((doc) => {
+        const data = doc.data();
+        // Format the timestamp to a readable string
+        const formattedCreatedAt = data.createdAt.toDate().toLocaleString();
+
+        return {
+          ...data,
+          id: doc.id,
+          createdAt: formattedCreatedAt,
+        };
       });
 
+      // Format the timestamp to a readable string
+      // const createdAt = data.createdAt.toDate().toLocaleString();
       setUserData(userDataArray);
     } catch (error) {
       console.error("Error fetching data:", error.message);

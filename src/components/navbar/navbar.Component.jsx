@@ -32,7 +32,7 @@ const Navbar = () => {
     navigateToSignIn();
   };
 
-  const admin = userData.filter(
+  const admin = userData.find(
     (item) => item.email === "janarthanan.v2107@gmail.com"
   );
 

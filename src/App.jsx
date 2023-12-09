@@ -3,7 +3,16 @@ import {
   RouterProvider,
   useNavigate,
 } from "react-router-dom";
-import { Root, Admin, Home, Shop, Cart, SignIn, SignUp } from "./routes/index";
+import {
+  Root,
+  Admin,
+  Home,
+  Shop,
+  Cart,
+  SignIn,
+  SignUp,
+  Form,
+} from "./routes/index";
 
 import "./App.css";
 
@@ -42,12 +51,19 @@ const router = createBrowserRouter([
         path: "admin",
         element: <Admin />,
       },
+      {
+        path: "form",
+        element: <Form />,
+      },
+      {
+        path: "form/:category",
+        element: <Form />,
+      },
     ],
   },
 ]);
 
 const App = () => {
-
   return (
     <div>
       <RouterProvider router={router} />
