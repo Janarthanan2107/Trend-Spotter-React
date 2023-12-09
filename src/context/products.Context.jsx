@@ -1,6 +1,15 @@
 // import context for application
 import { createContext, useContext, useEffect, useState } from "react";
-import { collection, getDocs, query } from "firebase/firestore";
+
+// this function are used for geting values and adding values on firestore
+import {
+  collection,
+  getDocs,
+  query,
+  setDoc,
+  updateDoc,
+  deleteDoc,
+} from "firebase/firestore";
 
 // import data for application
 import { categories } from "../constants";
@@ -12,10 +21,13 @@ const ProductsContext = createContext({
 
 // provider function
 const ProductsProvider = ({ children }) => {
+  // state that gets data from constant values
   const [products, setProducts] = useState(categories);
 
+  // state that gets data from firebase
   const [productData, setProductData] = useState([]);
 
+  // get data of all products
   const getData = async () => {
     try {
       const userCollection = collection(db, "products");
@@ -38,9 +50,7 @@ const ProductsProvider = ({ children }) => {
     getData();
   }, []);
 
-  console.log(productData);
-
-  const value = { products, setProducts,productData };
+  const value = { products, setProducts, productData };
 
   return (
     <ProductsContext.Provider value={value}>

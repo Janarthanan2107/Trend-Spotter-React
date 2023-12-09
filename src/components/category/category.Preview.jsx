@@ -15,8 +15,8 @@ const CatePreview = ({ products }) => {
         return (
           <span key={category.id}>
             <div className="product-category">
-              <p className="product-category-title">{category.title}</p>
-              <button onClick={() => navigateToCategory(category.title)}>
+              <p className="product-category-title">{category.category}</p>
+              <button onClick={() => navigateToCategory(category.category)}>
                 Show more
               </button>
             </div>

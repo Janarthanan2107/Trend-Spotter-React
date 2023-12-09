@@ -18,16 +18,16 @@ const Category = () => {
 
   return (
     <div className="category-container">
-      {products.map((item) => {
-        const { id, title, description, imgUrl } = item;
+      {productData.sort((a, b) => b.category.localeCompare(a.category)).map((item) => {
+        const { id, category, description, imgUrl } = item;
         return (
           <div
             key={id}
             className="category"
-            onClick={() => navigateToShop(title)}
+            onClick={() => navigateToShop(category)}
           >
             <div className="cat-info">
-              <h1>{title}</h1>
+              <h1>{category}</h1>
               <p>{description}</p>
             </div>
             <div className="cat-info-footer">

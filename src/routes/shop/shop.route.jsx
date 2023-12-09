@@ -8,11 +8,11 @@ import { useProductGlobalContext } from "../../context/products.Context";
 import "../shop/shop.style.scss";
 
 const Shop = () => {
-  const { products } = useProductGlobalContext();
+  const { productData } = useProductGlobalContext();
 
   return (
     <>
-      <Products products={products} />
+      <Products products={productData} />
     </>
   );
 };

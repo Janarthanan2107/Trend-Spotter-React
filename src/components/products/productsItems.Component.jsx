@@ -13,17 +13,23 @@ const ProductItems = ({ products }) => {
 
   // Filter products based on categoryId
   const filteredProducts = categoryId
-    ? products.filter((category) => category.title === categoryId)
+    ? products.filter((category) => category.category === categoryId)
     : products;
+
+  console.log(
+    "filtering:",
+    products.filter((category) => category.category === categoryId)
+  );
 
   console.log(filteredProducts);
   return (
     <div className="product-category-container">
       {filteredProducts.map((category) => {
+        // console.log(category);
         return (
           <span key={category.id}>
             <div className="product-category">
-              <p className="product-category-title">{category.title}</p>
+              <p className="product-category-title">{category.category}</p>
               <button onClick={navigateToShop}>All category</button>
             </div>
 
@@ -32,7 +38,6 @@ const ProductItems = ({ products }) => {
                 return <ProductCard key={product.id} product={product} />;
               })}
             </div>
-
           </span>
         );
       })}

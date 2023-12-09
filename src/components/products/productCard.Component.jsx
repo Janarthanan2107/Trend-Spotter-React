@@ -33,17 +33,17 @@ const ProductCard = ({ product }) => {
     toast.error("Please Login!");
   };
 
-  const ProductRating = ({ rate }) => {
-    const starArray = Array.from({ length: rate });
+  // const ProductRating = ({ rate }) => {
+  //   const starArray = Array.from({ length: rate });
 
-    return (
-      <div className="rating">
-        {starArray.map((item, index) => (
-          <FaStar key={index} />
-        ))}
-      </div>
-    );
-  };
+  //   return (
+  //     <div className="rating">
+  //       {starArray.map((item, index) => (
+  //         <FaStar key={index} />
+  //       ))}
+  //     </div>
+  //   );
+  // };
 
   return (
     <div className="product-card">
@@ -67,7 +67,7 @@ const ProductCard = ({ product }) => {
       <span className="title-container">
         <p>{title}</p>
 
-        <ProductRating rate={rating.rate} />
+        {/* <ProductRating rate={rating.rate} /> */}
       </span>
       <span className="price-container">
         <p>${price}</p>
@@ -103,7 +103,7 @@ const ProductCard = ({ product }) => {
 
               <span>
                 <p>Men's</p>
-                <ProductRating rate={rating.rate} />
+                {/* <ProductRating rate={rating.rate} /> */}
               </span>
 
               <div className="cart-btn-container">
