@@ -1,17 +1,11 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
-  Root,
-  Home,
-  Shop,
-  Cart,
-  Contact,
-  SignIn,
-  SignUp,
-} from "./routes/index";
+  createBrowserRouter,
+  RouterProvider,
+  useNavigate,
+} from "react-router-dom";
+import { Root, Admin, Home, Shop, Cart, SignIn, SignUp } from "./routes/index";
 
 import "./App.css";
-import { useUserContext } from "./context/user.Context";
-import { useEffect } from "react";
 
 // providing routers with respective components
 const router = createBrowserRouter([
@@ -44,11 +38,16 @@ const router = createBrowserRouter([
         path: "signUp",
         element: <SignUp />,
       },
+      {
+        path: "admin",
+        element: <Admin />,
+      },
     ],
   },
 ]);
 
 const App = () => {
+
   return (
     <div>
       <RouterProvider router={router} />

@@ -8,7 +8,7 @@ import { useProductGlobalContext } from "../../context/products.Context";
 import "../category/categories.style.scss";
 
 const Category = () => {
-  const { productData, products } = useProductGlobalContext();
+  const { productData } = useProductGlobalContext();
   // navigate to home
   let navigate = useNavigate();
 

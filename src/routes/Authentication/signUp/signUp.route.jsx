@@ -19,7 +19,7 @@ import "./signUp.style.scss";
 
 const SignUp = () => {
   // import database from context
-  const { user } = useUserContext();
+  const { user, userData } = useUserContext();
 
   // form state
   const [displayName, setDisplayName] = useState("");
@@ -41,15 +41,14 @@ const SignUp = () => {
       const userDocRef = await createUserDocFromAuth(user, { displayName });
       // console.log(user);
       // console.log(userDocRef);
-      
+
       setDisplayName("");
       setEmail("");
       setPassword("");
-      
+
       // page navigation
       signInPage();
       signOutUser();
-
     } catch (err) {
       console.log("Something went wrong!!..", err.message);
       console.log(err.code);

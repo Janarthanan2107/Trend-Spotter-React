@@ -50,7 +50,7 @@ const ProductsProvider = ({ children }) => {
     getData();
   }, []);
 
-  const value = { products, setProducts, productData };
+  const value = { setProducts, productData };
 
   return (
     <ProductsContext.Provider value={value}>

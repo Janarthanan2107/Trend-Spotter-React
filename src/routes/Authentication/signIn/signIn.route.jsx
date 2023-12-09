@@ -14,7 +14,7 @@ import "./signIn.style.scss";
 
 const SignIn = () => {
   // import database from context
-  const { user, googleHandler } = useUserContext();
+  const { userData, googleHandler } = useUserContext();
 
   // form state
   const [email, setEmail] = useState("");
@@ -31,8 +31,21 @@ const SignIn = () => {
     navigate("/signUp");
   };
 
-  const googlePopupHandler = () => {
-    googleHandler();
+  const googlePopupHandler = async () => {
+    await googleHandler();
+    if (admin.email === "janarthanan.v2107@gmail.com") {
+      navigateToAdmin();
+    } else {
+      logInToHome();
+    }
+  };
+
+  const admin = userData.find(
+    (item) => item.email === "janarthanan.v2107@gmail.com"
+  );
+
+  const navigateToAdmin = () => {
+    navigate("/admin");
   };
 
   const submitHandler = async (e) => {
@@ -42,7 +55,11 @@ const SignIn = () => {
       // console.log(user);
 
       // navigate to home
-      logInToHome();
+      if (admin) {
+        navigateToAdmin();
+      } else {
+        logInToHome();
+      }
 
       setEmail("");
       setPassword("");
@@ -66,7 +83,7 @@ const SignIn = () => {
           style: {
             background: "#363636",
             color: "#fff",
-            marginTop:"50px"
+            marginTop: "50px",
           },
         }}
       />

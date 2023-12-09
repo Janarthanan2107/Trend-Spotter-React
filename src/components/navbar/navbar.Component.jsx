@@ -11,11 +11,10 @@ import { useUserContext } from "../../context/user.Context";
 import { useCartGlobalContext } from "../../context/cart.Context";
 // styles
 import "../navbar/navbar.style.scss";
-import { useEffect } from "react";
 
 const Navbar = () => {
   // import database from context
-  const { user, logoutHandler } = useUserContext();
+  const { user, userData, logoutHandler } = useUserContext();
 
   const { cartCount } = useCartGlobalContext();
 
@@ -33,6 +32,12 @@ const Navbar = () => {
     navigateToSignIn();
   };
 
+  const admin = userData.filter(
+    (item) => item.email === "janarthanan.v2107@gmail.com"
+  );
+
+  // console.log(admin);
+
   return (
     <nav>
       {/* logo */}
@@ -46,6 +51,20 @@ const Navbar = () => {
       <span className="menu-container">
         {/* menu */}
         <ul>
+          {user && admin ? (
+            <li>
+              <NavLink
+                to="admin"
+                className={({ isActive }) =>
+                  isActive ? "isActive" : "isNotActive"
+                }
+              >
+                Admin
+              </NavLink>
+            </li>
+          ) : (
+            ""
+          )}
           <li>
             <NavLink
               to="/"
