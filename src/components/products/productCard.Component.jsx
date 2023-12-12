@@ -19,6 +19,10 @@ const ProductCard = ({ product }) => {
     (item) => item.email === "janarthanan.v2107@gmail.com"
   );
 
+  const adminDisplayName = admin ? admin.displayName : "";
+
+  const userName = user ? user.displayName : "";
+
   // hooks
   const [dialog, setDialog] = useState(false);
 
@@ -39,17 +43,17 @@ const ProductCard = ({ product }) => {
     toast.error("Please Login!");
   };
 
-  // const ProductRating = ({ rate }) => {
-  //   const starArray = Array.from({ length: rate });
+  const ProductRating = ({ rate }) => {
+    const starArray = Array.from({ length: rate });
 
-  //   return (
-  //     <div className="rating">
-  //       {starArray.map((item, index) => (
-  //         <FaStar key={index} />
-  //       ))}
-  //     </div>
-  //   );
-  // };
+    return (
+      <div className="rating">
+        {starArray.map((item, index) => (
+          <FaStar key={index} />
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="product-card">
@@ -80,22 +84,22 @@ const ProductCard = ({ product }) => {
       </span>
       <div className="cart-btn-container">
         <button
+          style={{
+            width: `${userName === adminDisplayName ? "" : "100%"}`,
+          }}
           onClick={() => (user ? addToCartHandler(product) : userAuthMessage())}
         >
           <FaCartShopping />
           Add to cart
         </button>
-        {user && admin ? (
+        {userName === adminDisplayName ? (
           <span>
             <button>
               <RiDeleteBin2Line />
             </button>
-            <button>
-              <BiSolidPencil />
-            </button>
           </span>
         ) : (
-          <></>
+          ""
         )}
       </div>
 

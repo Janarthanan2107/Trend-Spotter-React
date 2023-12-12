@@ -55,7 +55,7 @@ const SignIn = () => {
       // console.log(user);
 
       // navigate to home
-      if (admin) {
+      if (admin === "Janarthanan V") {
         navigateToAdmin();
       } else {
         logInToHome();

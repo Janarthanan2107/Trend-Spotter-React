@@ -18,7 +18,7 @@ const Category = () => {
 
   return (
     <div className="category-container">
-      {productData.sort((a, b) => b.category.localeCompare(a.category)).map((item) => {
+      {productData.map((item) => {
         const { id, category, description, imgUrl } = item;
         return (
           <div

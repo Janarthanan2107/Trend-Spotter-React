@@ -36,7 +36,12 @@ const Navbar = () => {
     (item) => item.email === "janarthanan.v2107@gmail.com"
   );
 
-  // console.log(admin);
+  const adminDisplayName = admin ? admin.displayName : "";
+
+  const userName = user ? user.displayName : "";
+  
+  console.log(adminDisplayName);
+  console.log(userName);
 
   return (
     <nav>
@@ -51,7 +56,7 @@ const Navbar = () => {
       <span className="menu-container">
         {/* menu */}
         <ul>
-          {user && admin ? (
+          {userName === adminDisplayName && (
             <li>
               <NavLink
                 to="admin"
@@ -62,8 +67,6 @@ const Navbar = () => {
                 Admin
               </NavLink>
             </li>
-          ) : (
-            ""
           )}
           <li>
             <NavLink

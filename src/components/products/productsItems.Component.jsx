@@ -1,9 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
 import ProductCard from "./productCard.Component";
+import { useEffect, useState } from "react";
 
 const ProductItems = ({ products }) => {
   const { categoryId } = useParams();
   console.log(categoryId);
+
+  console.log(products);
 
   let navigate = useNavigate();
 
@@ -12,16 +15,20 @@ const ProductItems = ({ products }) => {
   };
 
   // Filter products based on categoryId
-  const filteredProducts = categoryId
-    ? products.filter((category) => category.category === categoryId)
-    : products;
+  // const filteredProducts = categoryId
+  //   ? products.filter((category) => category.category === categoryId)
+  //   : products;
 
-  console.log(
-    "filtering:",
-    products.filter((category) => category.category === categoryId)
-  );
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  console.log(filteredProducts);
+  useEffect(() => {
+    // Filter products based on categoryId when the component mounts or categoryId changes
+    const filtered = categoryId
+      ? products.filter((category) => category.category === categoryId)
+      : products;
+
+    setFilteredProducts(filtered);
+  }, [categoryId, products]);
   return (
     <div className="product-category-container">
       {filteredProducts.map((category) => {
