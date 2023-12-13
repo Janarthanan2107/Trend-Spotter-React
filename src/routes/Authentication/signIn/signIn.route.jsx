@@ -72,6 +72,12 @@ const SignIn = () => {
     }
   };
 
+  useEffect(() => {
+    if (admin === "Janarthanan V") {
+      navigateToAdmin();
+    }
+  }, []);
+
   return (
     <div className="signIn-container">
       <Toaster
@@ -102,7 +108,6 @@ const SignIn = () => {
             Sign up!
           </span>
         </p>
-
         <form className="form" onSubmit={submitHandler}>
           <div className="form-control">
             <label htmlFor="email">Email</label>
@@ -134,6 +139,18 @@ const SignIn = () => {
             </button>
           </div>
         </form>
+        <br />
+        <div>
+          <p>
+            <span style={{ fontWeight: 600,color:"gold" }}>Admin Credentials</span>
+            <br />
+            <br />
+            Email: janarthanan.v2107@gmail.com
+            <br />
+            <br />
+            Password: 12345678
+          </p>
+        </div>
       </div>
     </div>
   );

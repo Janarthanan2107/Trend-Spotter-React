@@ -13,7 +13,7 @@ import "./admin.styles.scss";
 const Admin = () => {
   // admin data
   const { userData, setUserData } = useUserContext();
-  const { productData, setProductData ,getData} = useProductGlobalContext();
+  const { productData, setProductData, getData } = useProductGlobalContext();
 
   // finding admin data
   const admin = userData.find(
@@ -110,6 +110,7 @@ const Admin = () => {
           },
         }}
       />
+      <h3 style={{ marginBottom: "10px" }}>Admin Panel:</h3>
       <div className="admin-stats">
         <div className="card">
           <div className="stats-topic">
@@ -147,7 +148,7 @@ const Admin = () => {
       </div>
       <br />
       <hr />
-      {/* <div className="stats-tables">
+      <div className="stats-tables">
         <span>
           <h3 className="table-heading">User Data : </h3>
           <div className="user-table-container">
@@ -203,11 +204,27 @@ const Admin = () => {
               </thead>
               <tbody>
                 {productData.map((item, index) => {
-                  const {id, category, description, products } = item;
+                  const { id, imgUrl, category, description, products } = item;
                   return (
                     <tr key={index}>
                       <td>{category}</td>
-                      <td>{description}</td>
+                      <td
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          flexDirection:"column",
+                          gap: "10px",
+                          alignItems: "center",
+                          fontSize: "13px",
+                        }}
+                      >
+                        {description}
+                        <img
+                          src={imgUrl}
+                          alt={category}
+                          style={{ height: "120px", borderRadius: "6px" }}
+                        ></img>
+                      </td>
                       <td>
                         <span className="action-container">
                           {products.length}
@@ -232,7 +249,7 @@ const Admin = () => {
             </table>
           </div>
         </span>
-      </div> */}
+      </div>
     </div>
   );
 };
