@@ -39,7 +39,7 @@ const Navbar = () => {
   const adminDisplayName = admin ? admin.displayName : "";
 
   const userName = user ? user.displayName : "";
-  
+
   console.log(adminDisplayName);
   console.log(userName);
 
@@ -56,7 +56,7 @@ const Navbar = () => {
       <span className="menu-container">
         {/* menu */}
         <ul>
-          {userName === adminDisplayName && (
+          {userName === adminDisplayName ? (
             <li>
               <NavLink
                 to="admin"
@@ -67,6 +67,8 @@ const Navbar = () => {
                 Admin
               </NavLink>
             </li>
+          ) : (
+            ""
           )}
           <li>
             <NavLink

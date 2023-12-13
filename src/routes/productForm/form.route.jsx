@@ -1,5 +1,4 @@
 import { useNavigate, useParams } from "react-router-dom";
-import "./form.style.scss";
 import { useProductGlobalContext } from "../../context/products.Context";
 import { useState } from "react";
 

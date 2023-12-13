@@ -8,12 +8,15 @@ import { useCartGlobalContext } from "../../context/cart.Context";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useUserContext } from "../../context/user.Context";
+import { useProductGlobalContext } from "../../context/products.Context";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, cateId, deleteProductHandler }) => {
   const { id, image, title, rating, price } = product;
 
   const { addItemToCart } = useCartGlobalContext();
   const { user, userData } = useUserContext();
+  // const { deleteFromDb } = useProductGlobalContext();
+
   // finding admin data
   const admin = userData.find(
     (item) => item.email === "janarthanan.v2107@gmail.com"
@@ -77,7 +80,7 @@ const ProductCard = ({ product }) => {
       <span className="title-container">
         <p>{title}</p>
 
-        {/* <ProductRating rate={rating.rate} /> */}
+        <ProductRating rate={rating.rate} />
       </span>
       <span className="price-container">
         <p>${price}</p>
@@ -94,7 +97,7 @@ const ProductCard = ({ product }) => {
         </button>
         {userName === adminDisplayName ? (
           <span>
-            <button>
+            <button onClick={() => deleteProductHandler(cateId,id)}>
               <RiDeleteBin2Line />
             </button>
           </span>
@@ -125,7 +128,7 @@ const ProductCard = ({ product }) => {
 
               <span>
                 <p>Men's</p>
-                {/* <ProductRating rate={rating.rate} /> */}
+                <ProductRating rate={rating.rate} />
               </span>
 
               <div className="cart-btn-container">

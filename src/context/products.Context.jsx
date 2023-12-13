@@ -5,7 +5,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { collection, getDocs, query } from "firebase/firestore";
 
 // import data for application
-import { categories } from "../constants";
+// import { categories } from "../constants";
 import { db } from "../utils/firebase";
 
 const ProductsContext = createContext({
@@ -23,27 +23,28 @@ const ProductsProvider = ({ children }) => {
   // get data of all products
   const getData = async () => {
     try {
-      const userCollection = collection(db, "products");
-      const queries = query(userCollection);
+      const productCollection = collection(db, "products");
+      const productQuery = query(productCollection);
+      const querySnapshot = await getDocs(productQuery);
 
-      const querySnapShot = await getDocs(queries);
-
-      let productDataArray = [];
-      querySnapShot.forEach((doc) => {
-        productDataArray.push({ ...doc.data(), id: doc.id });
-      });
+      const productDataArray = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
 
       setProductData(productDataArray);
     } catch (error) {
-      console.error("Error fetching data:", error.message);
+      console.error("Error fetching product data:", error.message);
     }
   };
 
   useEffect(() => {
     getData();
-  }, [productData]);
+  }, []);
 
-  const value = { productData, setProductData };
+  // console.log(productData);
+
+  const value = { productData, setProductData, getData };
 
   return (
     <ProductsContext.Provider value={value}>

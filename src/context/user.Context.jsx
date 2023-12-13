@@ -76,10 +76,13 @@ const UserContextProvider = ({ children }) => {
     getData();
   }, []);
 
+  console.log(userData);
+
   //   assign the values
   const values = {
     user,
     userData,
+    setUserData,
     googleHandler,
     logoutHandler,
   };

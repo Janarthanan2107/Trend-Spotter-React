@@ -12,6 +12,7 @@ import {
   SignIn,
   SignUp,
   Form,
+  CategoryForm,
 } from "./routes/index";
 
 import "./App.css";
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "form",
         element: <Form />,
+      },
+      {
+        path: "categoryForm",
+        element: <CategoryForm />,
       },
       {
         path: "form/:category",

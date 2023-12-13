@@ -5,13 +5,15 @@ import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/user.Context";
 import { useProductGlobalContext } from "../../context/products.Context";
 import { useEffect } from "react";
-
+import { doc, deleteDoc } from "firebase/firestore";
+import { db } from "../../utils/firebase";
+import toast, { Toaster } from "react-hot-toast";
 import "./admin.styles.scss";
 
 const Admin = () => {
   // admin data
-  const { userData } = useUserContext();
-  const { productData } = useProductGlobalContext();
+  const { userData, setUserData } = useUserContext();
+  const { productData, setProductData ,getData} = useProductGlobalContext();
 
   // finding admin data
   const admin = userData.find(
@@ -25,8 +27,44 @@ const Admin = () => {
     navigate("/signIn");
   };
 
+  const navigateToCategoryForm = () => {
+    navigate("/categoryForm");
+  };
+
   const navigateToForm = (id) => {
     navigate(`/form/${id}`);
+  };
+
+  const userDeleteHandler = async (id) => {
+    try {
+      // Delete the document
+      await deleteDoc(doc(db, "user", id));
+
+      // Update the user data in the context
+      const updatedUserData = userData.filter((user) => user.id !== id);
+      setUserData(updatedUserData);
+
+      toast.success("Successfully deleted!");
+    } catch (error) {
+      console.error("Error deleting data:", error.message);
+      toast.error("Error deleting user!");
+    }
+  };
+
+  const productDeleteHandler = async (id) => {
+    try {
+      // Delete the document
+      await deleteDoc(doc(db, "products", id));
+
+      // Update the user data in the context
+      const updatedProductData = productData.filter((user) => user.id !== id);
+      setProductData(updatedProductData);
+
+      toast.success("Successfully deleted!");
+    } catch (error) {
+      console.error("Error deleting data:", error.message);
+      toast.error("Error deleting user!");
+    }
   };
 
   // validation for admin page
@@ -36,7 +74,9 @@ const Admin = () => {
     }
   }, []);
 
-  // console.log(userData);
+  useEffect(() => {
+    getData();
+  }, []);
 
   const hightToAdmin = (email) => {
     if (email === "janarthanan.v2107@gmail.com") {
@@ -51,8 +91,25 @@ const Admin = () => {
     }
   };
 
+  const productsArrayLength = productData
+    .map((item) => item.products.length)
+    .reduce((acc, current) => acc + current, 0);
+
   return (
     <div className="admin-container">
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          // Define default options
+          className: "",
+          duration: 2000,
+          style: {
+            background: "#363636",
+            color: "#fff",
+            marginTop: "50px",
+          },
+        }}
+      />
       <div className="admin-stats">
         <div className="card">
           <div className="stats-topic">
@@ -73,7 +130,7 @@ const Admin = () => {
             </p>
           </div>
           <div className="stats-count">
-            <p>{productData.length} data</p>
+            <p>{productsArrayLength} data</p>
           </div>
         </div>
         <div className="card">
@@ -90,7 +147,7 @@ const Admin = () => {
       </div>
       <br />
       <hr />
-      <div className="stats-tables">
+      {/* <div className="stats-tables">
         <span>
           <h3 className="table-heading">User Data : </h3>
           <div className="user-table-container">
@@ -105,14 +162,17 @@ const Admin = () => {
               </thead>
               <tbody>
                 {userData.map((user, index) => {
-                  const { displayName, email, createdAt } = user;
+                  const { id, displayName, email, createdAt } = user;
                   return (
                     <tr key={index}>
                       <td>{displayName}</td>
                       <td>{hightToAdmin(email)}</td>
                       <td>{createdAt}</td>
                       <td>
-                        <button className="delete-icon">
+                        <button
+                          className="delete-icon"
+                          onClick={() => userDeleteHandler(id)}
+                        >
                           <RiDeleteBin2Line />
                         </button>
                       </td>
@@ -124,7 +184,14 @@ const Admin = () => {
           </div>
         </span>
         <span>
-          <h3 className="table-heading">Category Data : </h3>
+          <span className="cate-head">
+            <h3 className="table-heading">
+              <span>Category Data : </span>
+            </h3>
+            <button onClick={navigateToCategoryForm} className="add-icon">
+              Add Category
+            </button>
+          </span>
           <div className="category-table-container">
             <table className="data-table">
               <thead>
@@ -136,19 +203,27 @@ const Admin = () => {
               </thead>
               <tbody>
                 {productData.map((item, index) => {
-                  const { category, description, products } = item;
+                  const {id, category, description, products } = item;
                   return (
                     <tr key={index}>
                       <td>{category}</td>
                       <td>{description}</td>
                       <td>
-                        {products.length}
-                        <button
-                          className="add-icon"
-                          onClick={() => navigateToForm(category)}
-                        >
-                          <GoPlus />
-                        </button>
+                        <span className="action-container">
+                          {products.length}
+                          <button
+                            className="add-icon"
+                            onClick={() => navigateToForm(category)}
+                          >
+                            <GoPlus />
+                          </button>
+                          <button
+                            className="delete-icon"
+                            onClick={() => productDeleteHandler(id)}
+                          >
+                            <RiDeleteBin2Line />
+                          </button>
+                        </span>
                       </td>
                     </tr>
                   );
@@ -157,7 +232,7 @@ const Admin = () => {
             </table>
           </div>
         </span>
-      </div>
+      </div> */}
     </div>
   );
 };

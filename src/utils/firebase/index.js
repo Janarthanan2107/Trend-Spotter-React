@@ -22,12 +22,12 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyD7NN2wxbK8YGNW5jL4YMrEGjF1V3JW9wc",
-    authDomain: "trendspotter-7cdca.firebaseapp.com",
-    projectId: "trendspotter-7cdca",
-    storageBucket: "trendspotter-7cdca.appspot.com",
-    messagingSenderId: "221396004584",
-    appId: "1:221396004584:web:397b31792adb56ea13e35d"
+    apiKey: "AIzaSyC-5xA7GqtAhhRojl2qV3Bap6nnfqPbbN8",
+    authDomain: "practice-649fd.firebaseapp.com",
+    projectId: "practice-649fd",
+    storageBucket: "practice-649fd.appspot.com",
+    messagingSenderId: "103084443162",
+    appId: "1:103084443162:web:ab61931b30cc9209a033a3"
 };
 
 // Initialize Firebase
