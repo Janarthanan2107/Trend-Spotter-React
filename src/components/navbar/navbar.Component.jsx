@@ -99,7 +99,7 @@ const Navbar = () => {
             >
               Cart
             </NavLink>
-            <p className="cart-count">{cartCount}</p>
+            {cartCount > 0 && <p className="cart-count">{cartCount}</p>}
           </li>
         </ul>
 

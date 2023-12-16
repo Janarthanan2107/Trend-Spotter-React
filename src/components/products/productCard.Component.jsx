@@ -10,12 +10,16 @@ import toast, { Toaster } from "react-hot-toast";
 import { useUserContext } from "../../context/user.Context";
 import { useProductGlobalContext } from "../../context/products.Context";
 
-const ProductCard = ({ product, cateId, deleteProductHandler }) => {
+const ProductCard = ({ product, cateId }) => {
   const { id, image, title, rating, price } = product;
 
   const { addItemToCart } = useCartGlobalContext();
   const { user, userData } = useUserContext();
-  // const { deleteFromDb } = useProductGlobalContext();
+  const { deleteProductHandler } = useProductGlobalContext();
+
+  const deleteProduct = (cateId, id) => {
+    deleteProductHandler(cateId, id);
+  };
 
   // finding admin data
   const admin = userData.find(
@@ -97,7 +101,7 @@ const ProductCard = ({ product, cateId, deleteProductHandler }) => {
         </button>
         {userName === adminDisplayName ? (
           <span>
-            <button onClick={() => deleteProductHandler(cateId,id)}>
+            <button onClick={() => deleteProduct(cateId, id)}>
               <RiDeleteBin2Line />
             </button>
           </span>

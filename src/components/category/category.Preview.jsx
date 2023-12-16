@@ -22,34 +22,20 @@ const CatePreview = ({ products }) => {
             </div>
 
             <div className="product-card-container">
-              {category.products &&
-                category.products
-                  .filter((product, index) => index < 3)
-                  .map((product) => {
-                    return (
-                      // <div className="product-card" key={product.id}>
-                      //   <span className="img-container">
-                      //     <p>Men's</p>
-                      //     <img src={product.image} alt="t-shirt" />
-                      //   </span>
-                      //   <span className="title-container">
-                      //     <p>{product.title}</p>
-
-                      //     <ProductRating rate={product.rating.rate} />
-                      //   </span>
-                      //   <span className="price-container">
-                      //     <p>$145.00</p>
-                      //   </span>
-                      //   <div className="cart-btn-container">
-                      //     <button onClick={() => addToCartHandler(product)}>
-                      //       <FaCartShopping />
-                      //       Add to cart
-                      //     </button>
-                      //   </div>
-                      // </div>
-                      <ProductCard key={product.id} product={product} />
-                    );
-                  })}
+              {category.products.length > 0 ? (
+                <>
+                  {category.products &&
+                    category.products
+                      .filter((product, index) => index < 3)
+                      .map((product) => {
+                        return (
+                          <ProductCard key={product.id} product={product} />
+                        );
+                      })}
+                </>
+              ) : (
+                <div style={{ color: "gray" }}>No products found!</div>
+              )}
             </div>
           </span>
         );

@@ -2,11 +2,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 // this function are used for geting values and adding values on firestore
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
 
 // import data for application
 // import { categories } from "../constants";
 import { db } from "../utils/firebase";
+import toast from "react-hot-toast";
 
 const ProductsContext = createContext({
   products: [],
@@ -38,13 +39,46 @@ const ProductsProvider = ({ children }) => {
     }
   };
 
+  const deleteProductHandler = async (categoryId, productId) => {
+    try {
+      const updatedCategories = productData.find((category) => {
+        return category.id === categoryId;
+      });
+
+      const filteredProducts = updatedCategories.products.filter(
+        (product) => product.id !== productId
+      );
+      // console.log(productData);
+      // console.log(updatedCategories);
+      // console.log(filteredProducts);
+      // console.log({ ...updatedCategories, products: filteredProducts });
+
+      const productDocRef = await doc(db, "products", categoryId);
+
+      // console.log(productDocRef);
+      await setDoc(productDocRef, {
+        ...updatedCategories,
+        products: filteredProducts,
+      });
+
+      setProductData({
+        ...updatedCategories,
+        products: filteredProducts,
+      });
+
+      toast.success("Successfully deleted!");
+      console.log("Successfully deleted!");
+    } catch (error) {
+      console.error("Error deleting data:", error.message);
+      toast.error("Error deleting Product!");
+    }
+  };
+
   useEffect(() => {
     getData();
   }, []);
 
-  // console.log(productData);
-
-  const value = { productData, setProductData, getData };
+  const value = { productData, setProductData, getData, deleteProductHandler };
 
   return (
     <ProductsContext.Provider value={value}>

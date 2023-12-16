@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useProductGlobalContext } from "../../context/products.Context";
 import ProductCard from "./productCard.Component";
 import toast, { Toaster } from "react-hot-toast";
-import { db } from "../../utils/firebase";
-import { arrayUnion, doc, setDoc, updateDoc } from "firebase/firestore";
 
 const ProductItems = ({ products }) => {
   const { categoryId } = useParams();
-  const { productData, setProductData } = useProductGlobalContext();
 
   let navigate = useNavigate();
 
@@ -18,43 +14,21 @@ const ProductItems = ({ products }) => {
 
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const deleteProductHandler = async (categoryId, productId) => {
-    console.log("cate id:", categoryId);
-    console.log("product id:", productId);
-
-    try {
-      const updatedCategories = productData.map((category) => {
-        if (category.id === categoryId) {
-          return {
-            ...category,
-            products: category.products.filter(
-              (product) => product.id !== productId
-            ),
-          };
-        }
-        return category;
+  const fetchData = () => {
+    if (Array.isArray(products)) {
+      const updatedProducts = products.filter((product) => {
+        return product.category === categoryId;
       });
-      const productDocRef = await doc(db, "products", String(categoryId));
-      // console.log(productDocRef);
-      await setDoc(productDocRef, ...updatedCategories);
 
-      console.log(updatedCategories);
-      setProductData(updatedCategories);
-
-      toast.success("Successfully deleted!");
-    } catch (error) {
-      console.error("Error deleting data:", error.message);
-      toast.error("Error deleting Product!");
+      setFilteredProducts(updatedProducts);
+    } else {
+      console.error("Products is not an array:", products);
+      // You might want to handle this case differently based on your application's requirements
     }
   };
 
   useEffect(() => {
-    // Filter products based on categoryId when the component mounts or categoryId changes
-    const filtered = categoryId
-      ? products.filter((category) => category.category === categoryId)
-      : products;
-
-    setFilteredProducts(filtered);
+    fetchData();
   }, [categoryId, products]);
 
   return (
@@ -82,16 +56,21 @@ const ProductItems = ({ products }) => {
             </div>
 
             <div className="product-card-container">
-              {category.products.map((product) => {
-                return (
-                  <ProductCard
-                    key={product.id}
-                    cateId={category.id}
-                    product={product}
-                    deleteProductHandler={deleteProductHandler}
-                  />
-                );
-              })}
+              {category.products.length > 0 ? (
+                <>
+                  {category.products.map((product) => {
+                    return (
+                      <ProductCard
+                        key={product.id}
+                        cateId={category.id}
+                        product={product}
+                      />
+                    );
+                  })}
+                </>
+              ) : (
+                <div style={{ color: "gray" }}>No products found!</div>
+              )}
             </div>
           </span>
         );
