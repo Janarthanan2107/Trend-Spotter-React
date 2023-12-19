@@ -76,7 +76,7 @@ const UserContextProvider = ({ children }) => {
     getData();
   }, []);
 
-  console.log(userData);
+  // console.log(userData);
 
   //   assign the values
   const values = {

@@ -76,7 +76,7 @@ const Admin = () => {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
 
   const hightToAdmin = (email) => {
     if (email === "janarthanan.v2107@gmail.com") {
@@ -212,7 +212,7 @@ const Admin = () => {
                         style={{
                           display: "flex",
                           justifyContent: "space-between",
-                          flexDirection:"column",
+                          flexDirection: "column",
                           gap: "10px",
                           alignItems: "center",
                           fontSize: "13px",

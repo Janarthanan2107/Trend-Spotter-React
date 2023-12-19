@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import ProductCard from "../products/productCard.Component";
+import { useEffect, useState } from "react";
 
 const CatePreview = ({ products }) => {
   let navigate = useNavigate();
@@ -9,9 +10,24 @@ const CatePreview = ({ products }) => {
     navigate(`/shop/${id}`);
   };
 
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  const fetchData = () => {
+    if (Array.isArray(products)) {
+      setFilteredProducts(products);
+    } else {
+      console.error("Products is not an array:", products);
+      // You might want to handle this case differently based on your application's requirements
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [products]);
+
   return (
     <div className="product-category-container">
-      {products.map((category) => {
+      {filteredProducts.map((category) => {
         return (
           <span key={category.id}>
             <div className="product-category">
@@ -29,7 +45,11 @@ const CatePreview = ({ products }) => {
                       .filter((product, index) => index < 3)
                       .map((product) => {
                         return (
-                          <ProductCard key={product.id} product={product} />
+                          <ProductCard
+                            key={product.id}
+                            cateId={category.id}
+                            product={product}
+                          />
                         );
                       })}
                 </>

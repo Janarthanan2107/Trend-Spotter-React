@@ -140,7 +140,7 @@ const categories = [
         id: 3,
         title: "Shoes",
         description: "Stylish Sneakers for Men's",
-        imgUrl: "http://yesofcorsa.com/wp-content/uploads/2019/11/Male-Sneakers-Model-Desktop-Wallpaper.jpg",
+        imgUrl: "a",
         products: [
             {
                 id: 1,

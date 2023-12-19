@@ -40,8 +40,8 @@ const Navbar = () => {
 
   const userName = user ? user.displayName : "";
 
-  console.log(adminDisplayName);
-  console.log(userName);
+  // console.log(adminDisplayName);
+  // console.log(userName);
 
   return (
     <nav>

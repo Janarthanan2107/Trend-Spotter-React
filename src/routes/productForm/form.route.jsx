@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useProductGlobalContext } from "../../context/products.Context";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   collection,
@@ -81,7 +82,7 @@ const Form = () => {
     const selectedCategory = formData.category;
 
     const productData = {
-      id: Date.now(),
+      id: uuidv4(),
       title: formData.title,
       price: parseInt(formData.price, 10),
       image: formData.image,
