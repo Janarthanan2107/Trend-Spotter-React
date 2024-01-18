@@ -140,7 +140,7 @@ const SignIn = () => {
           </div>
         </form>
         <br />
-        {/* <div>
+        <div>
           <p>
             <span style={{ fontWeight: 600,color:"gold" }}>Admin Credentials</span>
             <br />
@@ -150,7 +150,7 @@ const SignIn = () => {
             <br />
             Password: 12345678
           </p>
-        </div> */}
+        </div>
       </div>
     </div>
   );
