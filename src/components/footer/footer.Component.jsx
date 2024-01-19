@@ -18,7 +18,7 @@ const Footer = () => {
             <img src={trendSpotterLogo} alt="logo" />
             <p>TRENDSPOTTER</p>
           </div>
-          <Link to={"/signIn"}>
+          <Link to={"/signUp"}>
             <button type="button">Join Us.</button>
           </Link>
         </div>
