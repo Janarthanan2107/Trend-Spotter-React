@@ -17,12 +17,12 @@ import {
 
 import "./App.css";
 
-// providing routers with respective components
-const router = createBrowserRouter([
+// Define your router configuration
+const routerConfig = [
   {
     path: "/",
     element: <Root />,
-    // childrens for the root
+    // Define child routes for the root route
     children: [
       {
         path: "",
@@ -31,10 +31,12 @@ const router = createBrowserRouter([
       {
         path: "shop",
         element: <Shop />,
-      },
-      {
-        path: "shop/:categoryId",
-        element: <Shop />,
+        children: [
+          {
+            path: ":categoryId",
+            element: <Shop />,
+          },
+        ],
       },
       {
         path: "cart",
@@ -66,11 +68,15 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+];
+
+// Create the router using the router configuration
+const router = createBrowserRouter(routerConfig);
 
 const App = () => {
   return (
     <div>
+      {/* Provide the router to your application */}
       <RouterProvider router={router} />
     </div>
   );
