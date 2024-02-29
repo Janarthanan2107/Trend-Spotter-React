@@ -13,7 +13,8 @@ const CatePreview = ({ products }) => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchData = () => {
+  useEffect(() => {
+    // Fetch data only if products exist
     if (Array.isArray(products)) {
       setFilteredProducts(products);
       setLoading(false);
@@ -21,10 +22,6 @@ const CatePreview = ({ products }) => {
       console.error("Products is not an array:", products);
       // You might want to handle this case differently based on your application's requirements
     }
-  };
-
-  useEffect(() => {
-    fetchData();
   }, [products]);
 
   return (
@@ -35,6 +32,7 @@ const CatePreview = ({ products }) => {
         <div style={{ color: "gray" }}>No records found!</div>
       ) : (
         filteredProducts.map((category) => {
+          // console.log(category);
           return (
             <span key={category.id}>
               <div className="product-category">

@@ -5,7 +5,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
 
 import { useCartGlobalContext } from "../../context/cart.Context";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useUserContext } from "../../context/user.Context";
 import { useProductGlobalContext } from "../../context/products.Context";

@@ -22,12 +22,12 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDLAbhGP7ZGQec0FIhxJSfRoqnjnzDDttY",
-    authDomain: "testing-e29e9.firebaseapp.com",
-    projectId: "testing-e29e9",
-    storageBucket: "testing-e29e9.appspot.com",
-    messagingSenderId: "96421097400",
-    appId: "1:96421097400:web:83bf74ee4f69b062d0694d"
+    apiKey: "AIzaSyC-5xA7GqtAhhRojl2qV3Bap6nnfqPbbN8",
+    authDomain: "practice-649fd.firebaseapp.com",
+    projectId: "practice-649fd",
+    storageBucket: "practice-649fd.appspot.com",
+    messagingSenderId: "103084443162",
+    appId: "1:103084443162:web:00078b03a6734119a033a3"
 };
 
 // Initialize Firebase

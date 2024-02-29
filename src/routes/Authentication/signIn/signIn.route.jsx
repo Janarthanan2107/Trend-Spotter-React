@@ -31,31 +31,33 @@ const SignIn = () => {
     navigate("/signUp");
   };
 
-  const navigateToAdmin = () => {
-    navigate("/admin");
-  };
-
-  const admin = userData.find(
-    (item) => item.email === "janarthanan.v2107@gmail.com"
-  );
-
   const googlePopupHandler = async () => {
     await googleHandler();
-    if (admin.email === "janarthanan.v2107@gmail.com" && admin.displayName === "Janarthanan V") {
+    if (admin.email === "janarthanan.v2107@gmail.com") {
       navigateToAdmin();
     } else {
       logInToHome();
     }
   };
 
+  const admin = userData.find(
+    (item) => item.email === "janarthanan.v2107@gmail.com"
+  );
+
+  const navigateToAdmin = () => {
+    navigate("/admin");
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
       const { user } = await signInAuthForGoogle(email, password);
-      // console.log(user);
+      console.log(user);
+
+      console.log(user.email === admin.email)
 
       // navigate to home
-      if (admin.displayName === "Janarthanan V") {
+      if (user.email === admin.email) {
         navigateToAdmin();
       } else {
         logInToHome();

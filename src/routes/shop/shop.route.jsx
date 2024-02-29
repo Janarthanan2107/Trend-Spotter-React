@@ -9,11 +9,7 @@ import { useProductGlobalContext } from "../../context/products.Context";
 import "../shop/shop.style.scss";
 
 const Shop = () => {
-  const { productData, getData } = useProductGlobalContext();
-
-  useEffect(() => {
-    getData();
-  });
+  const { productData } = useProductGlobalContext();
 
   return (
     <>

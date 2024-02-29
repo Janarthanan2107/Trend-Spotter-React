@@ -17,7 +17,7 @@ const Category = () => {
     if (productData.length > 0) {
       setLoading(false);
     }
-  }, [productData]);
+  }, []);
 
   return (
     <div className="category-container">
