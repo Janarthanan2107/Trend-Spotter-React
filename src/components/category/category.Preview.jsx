@@ -11,10 +11,12 @@ const CatePreview = ({ products }) => {
   };
 
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = () => {
     if (Array.isArray(products)) {
       setFilteredProducts(products);
+      setLoading(false);
     } else {
       console.error("Products is not an array:", products);
       // You might want to handle this case differently based on your application's requirements
@@ -27,7 +29,9 @@ const CatePreview = ({ products }) => {
 
   return (
     <div className="product-category-container">
-      {filteredProducts.length === 0 ? (
+      {loading ? ( // Show loading text if loading is true
+        <div>Loading...</div>
+      ) : filteredProducts.length === 0 ? ( // Show "No records found!" if no products
         <div style={{ color: "gray" }}>No records found!</div>
       ) : (
         filteredProducts.map((category) => {

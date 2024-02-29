@@ -31,21 +31,21 @@ const SignIn = () => {
     navigate("/signUp");
   };
 
-  const googlePopupHandler = async () => {
-    await googleHandler();
-    if (admin.email === "janarthanan.v2107@gmail.com") {
-      navigateToAdmin();
-    } else {
-      logInToHome();
-    }
+  const navigateToAdmin = () => {
+    navigate("/admin");
   };
 
   const admin = userData.find(
     (item) => item.email === "janarthanan.v2107@gmail.com"
   );
 
-  const navigateToAdmin = () => {
-    navigate("/admin");
+  const googlePopupHandler = async () => {
+    await googleHandler();
+    if (admin.email === "janarthanan.v2107@gmail.com" && admin.displayName === "Janarthanan V") {
+      navigateToAdmin();
+    } else {
+      logInToHome();
+    }
   };
 
   const submitHandler = async (e) => {

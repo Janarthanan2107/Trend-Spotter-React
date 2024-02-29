@@ -17,9 +17,13 @@ const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const googleHandler = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocFromAuth(user);
-    setUser(user);
+    try {
+      const { user } = await signInWithGooglePopup();
+      const userDocRef = await createUserDocFromAuth(user);
+      setUser(user);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const logoutHandler = () => {
