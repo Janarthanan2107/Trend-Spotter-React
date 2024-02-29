@@ -36,7 +36,7 @@ const UserContextProvider = ({ children }) => {
     // adding listener function
     const unSubscribe = onAuthStateChangeListener(async (user) => {
       setUser(user);
-      console.log(user);
+      // console.log(user);
       if (user) {
         createUserDocFromAuth(user);
         const userData = await getUserDataFromCollection(user);

@@ -36,12 +36,8 @@ const Navbar = () => {
     (item) => item.email === "janarthanan.v2107@gmail.com"
   );
 
-  const adminDisplayName = admin ? admin.displayName : "";
-
-  const userName = user ? user.displayName : "";
-
-  console.log(adminDisplayName);
-  console.log(userName);
+  const adminDisplayName = admin ? admin.displayName : "Guest";
+  const userName = user ? user.displayName : "Guest";
 
   return (
     <nav>

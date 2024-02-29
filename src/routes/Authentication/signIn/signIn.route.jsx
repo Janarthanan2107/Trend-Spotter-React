@@ -33,11 +33,7 @@ const SignIn = () => {
 
   const googlePopupHandler = async () => {
     await googleHandler();
-    if (admin.email === "janarthanan.v2107@gmail.com") {
-      navigateToAdmin();
-    } else {
-      logInToHome();
-    }
+    logInToHome();
   };
 
   const admin = userData.find(
@@ -53,8 +49,6 @@ const SignIn = () => {
     try {
       const { user } = await signInAuthForGoogle(email, password);
       console.log(user);
-
-      console.log(user.email === admin.email)
 
       // navigate to home
       if (user.email === admin.email) {
