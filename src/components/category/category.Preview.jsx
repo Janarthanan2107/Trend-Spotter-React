@@ -27,39 +27,43 @@ const CatePreview = ({ products }) => {
 
   return (
     <div className="product-category-container">
-      {filteredProducts.map((category) => {
-        return (
-          <span key={category.id}>
-            <div className="product-category">
-              <p className="product-category-title">{category.category}</p>
-              <button onClick={() => navigateToCategory(category.category)}>
-                Show more
-              </button>
-            </div>
+      {filteredProducts.length === 0 ? (
+        <div style={{ color: "gray" }}>No records found!</div>
+      ) : (
+        filteredProducts.map((category) => {
+          return (
+            <span key={category.id}>
+              <div className="product-category">
+                <p className="product-category-title">{category.category}</p>
+                <button onClick={() => navigateToCategory(category.category)}>
+                  Show more
+                </button>
+              </div>
 
-            <div className="product-card-container">
-              {category.products.length > 0 ? (
-                <>
-                  {category.products &&
-                    category.products
-                      .filter((product, index) => index < 3)
-                      .map((product) => {
-                        return (
-                          <ProductCard
-                            key={product.id}
-                            cateId={category.id}
-                            product={product}
-                          />
-                        );
-                      })}
-                </>
-              ) : (
-                <div style={{ color: "gray" }}>No products found!</div>
-              )}
-            </div>
-          </span>
-        );
-      })}
+              <div className="product-card-container">
+                {category.products.length > 0 ? (
+                  <>
+                    {category.products &&
+                      category.products
+                        .filter((product, index) => index < 3)
+                        .map((product) => {
+                          return (
+                            <ProductCard
+                              key={product.id}
+                              cateId={category.id}
+                              product={product}
+                            />
+                          );
+                        })}
+                  </>
+                ) : (
+                  <div style={{ color: "gray" }}>No products found!</div>
+                )}
+              </div>
+            </span>
+          );
+        })
+      )}
     </div>
   );
 };
