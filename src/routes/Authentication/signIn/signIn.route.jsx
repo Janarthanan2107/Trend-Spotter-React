@@ -55,7 +55,7 @@ const SignIn = () => {
       // console.log(user);
 
       // navigate to home
-      if (admin === "Janarthanan V") {
+      if (admin.displayName === "Janarthanan V") {
         navigateToAdmin();
       } else {
         logInToHome();
@@ -142,7 +142,9 @@ const SignIn = () => {
         <br />
         <div>
           <p>
-            <span style={{ fontWeight: 600,color:"gold" }}>Admin Credentials</span>
+            <span style={{ fontWeight: 600, color: "gold" }}>
+              Admin Credentials
+            </span>
             <br />
             <br />
             Email: janarthanan.v2107@gmail.com
